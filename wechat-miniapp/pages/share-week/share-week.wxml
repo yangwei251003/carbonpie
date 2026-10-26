@@ -1,0 +1,74 @@
+<view class="container">
+  <view class="poster" wx:if="{{report}}">
+    <!-- Header -->
+    <view class="poster-header">
+      <view class="poster-app">CarbonPie 碳果派</view>
+      <view class="poster-title">本周低碳周报</view>
+      <view class="poster-date">{{report.weekStart}} 至 {{report.weekEnd}}</view>
+    </view>
+
+    <!-- Stats Grid -->
+    <view class="stats-grid">
+      <view class="stat-card">
+        <view class="stat-label">减碳总量</view>
+        <view class="stat-value green">~{{report.weekCarbon}}kg</view>
+      </view>
+      <view class="stat-card">
+        <view class="stat-label">碳币</view>
+        <view class="stat-value">{{report.weekReward}}</view>
+      </view>
+      <view class="stat-card">
+        <view class="stat-label">活跃天数</view>
+        <view class="stat-value">{{report.activeDays}}天</view>
+      </view>
+      <view class="stat-card">
+        <view class="stat-label">记录次数</view>
+        <view class="stat-value">{{report.totalRecords}}</view>
+      </view>
+      <view class="stat-card">
+        <view class="stat-label">拍照打卡</view>
+        <view class="stat-value">{{report.totalPhotos}}</view>
+      </view>
+    </view>
+
+    <!-- Top Action -->
+    <view class="card top-action-card">
+      <view class="card-title">最常做的低碳行为</view>
+      <view class="top-action">
+        <view class="top-action-name">{{report.topAction}}</view>
+        <view class="top-action-count">共 {{report.topActionCount}} 次</view>
+      </view>
+    </view>
+
+    <!-- 7-day Chart -->
+    <view class="card chart-card">
+      <view class="card-title">每日减碳趋势</view>
+      <view class="chart">
+        <view class="chart-bars">
+          <view class="chart-col" wx:for="{{weekDays}}" wx:key="date">
+            <view class="chart-value">{{item.carbon > 0 ? item.carbon : ''}}</view>
+            <view class="chart-track">
+              <view class="chart-bar" style="height: {{item.height}}%"></view>
+            </view>
+            <view class="chart-label">{{item.label}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- Footer -->
+    <view class="poster-footer">
+      <view class="poster-nick">{{report.nickname}} 的低碳周报</view>
+      <view class="poster-slogan">每一笔记录，都是对地球的温柔</view>
+    </view>
+  </view>
+
+  <view class="empty" wx:else>
+    <view class="empty-text">暂无本周数据</view>
+  </view>
+
+  <!-- Save Button -->
+  <view class="save-bar" wx:if="{{report}}">
+    <button class="save-btn" bindtap="onSavePoster">导出周报文件</button>
+  </view>
+</view>

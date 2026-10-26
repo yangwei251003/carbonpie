@@ -1,0 +1,581 @@
+/* ── 低碳家园农场 — 样式 ── */
+
+.grow-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #E8F5E9 0%, #F1F8E9 30%, #FFFDE7 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+.grow-scroll {
+  flex: 1;
+  padding-bottom: 140rpx;
+}
+
+/* ── 顶部HUD ── */
+.grow-hud {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24rpx 30rpx 16rpx;
+}
+
+.hud-left {
+  flex: 1;
+}
+
+.hud-title {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #2E7D32;
+}
+
+.hud-sub {
+  font-size: 22rpx;
+  color: #66BB6A;
+  margin-top: 4rpx;
+}
+
+.level-badge {
+  background: linear-gradient(135deg, #A5D6A7, #66BB6A);
+  border-radius: 30rpx;
+  padding: 8rpx 24rpx;
+  box-shadow: 0 2rpx 8rpx rgba(46, 125, 50, 0.3);
+}
+
+.level-text {
+  font-size: 24rpx;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* ── 资源栏 ── */
+.resource-row {
+  display: flex;
+  gap: 16rpx;
+  padding: 0 30rpx 20rpx;
+}
+
+.resource-pill {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 30rpx;
+  padding: 8rpx 20rpx;
+  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.06);
+}
+
+.resource-icon {
+  font-size: 26rpx;
+  margin-right: 6rpx;
+}
+
+.resource-text {
+  font-size: 22rpx;
+  color: #555;
+  font-weight: 500;
+}
+
+/* ── 农场场景 ── */
+.game-scene {
+  position: relative;
+  margin: 0 30rpx;
+  border-radius: 24rpx;
+  overflow: hidden;
+  height: 420rpx;
+  background: #C8E6C9;
+}
+
+.scene-sky {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200rpx;
+  background: linear-gradient(180deg, #B3E5FC 0%, #E1F5FE 100%);
+}
+
+.scene-sun {
+  position: absolute;
+  top: 30rpx;
+  right: 50rpx;
+  width: 60rpx;
+  height: 60rpx;
+  background: #FFD54F;
+  border-radius: 50%;
+  box-shadow: 0 0 20rpx rgba(255, 213, 79, 0.6);
+}
+
+.scene-cloud {
+  position: absolute;
+  background: #fff;
+  border-radius: 40rpx;
+  opacity: 0.8;
+}
+
+.cloud-1 {
+  top: 40rpx;
+  left: 30rpx;
+  width: 100rpx;
+  height: 40rpx;
+}
+
+.cloud-2 {
+  top: 80rpx;
+  left: 160rpx;
+  width: 80rpx;
+  height: 32rpx;
+}
+
+.scene-mountain {
+  position: absolute;
+  bottom: 220rpx;
+  left: 0;
+  right: 0;
+  height: 120rpx;
+  background: linear-gradient(180deg, #81C784, #66BB6A);
+  border-radius: 50% 50% 0 0;
+}
+
+.scene-field {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 220rpx;
+  background: linear-gradient(180deg, #A5D6A7, #81C784);
+}
+
+/* ── 装饰设施 ── */
+.decor-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
+
+.scene-decor {
+  position: absolute;
+  font-size: 40rpx;
+  opacity: 0.7;
+  transition: all 0.3s;
+}
+
+.scene-decor-active {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* ── 农田地块 ── */
+.plot-board {
+  position: absolute;
+  bottom: 20rpx;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 20rpx;
+  z-index: 3;
+}
+
+.farm-plot {
+  width: 140rpx;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 16rpx;
+  padding: 12rpx 8rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.08);
+  transition: all 0.2s;
+  border: 2rpx solid transparent;
+}
+
+.farm-plot-selected {
+  border-color: #43A047;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.farm-plot-ready {
+  border-color: #FFB300;
+  box-shadow: 0 2rpx 12rpx rgba(255, 179, 0, 0.3);
+}
+
+.ready-flag {
+  font-size: 16rpx;
+  color: #FF8F00;
+  font-weight: 600;
+  margin-bottom: 4rpx;
+}
+
+.crop-bubble {
+  font-size: 44rpx;
+  margin: 4rpx 0;
+}
+
+.plot-name {
+  font-size: 20rpx;
+  color: #333;
+  font-weight: 600;
+}
+
+.plot-stage {
+  font-size: 18rpx;
+  color: #888;
+  margin: 2rpx 0 6rpx;
+}
+
+.plot-progress-track {
+  width: 100%;
+  height: 8rpx;
+  background: #E0E0E0;
+  border-radius: 4rpx;
+  overflow: hidden;
+}
+
+.plot-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #66BB6A, #43A047);
+  border-radius: 4rpx;
+  transition: width 0.5s;
+}
+
+/* ── 工具栏 ── */
+.tool-dock {
+  display: flex;
+  justify-content: center;
+  gap: 24rpx;
+  padding: 24rpx 30rpx;
+}
+
+.tool-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 120rpx;
+  padding: 16rpx 0;
+  background: #fff;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.06);
+  transition: all 0.2s;
+}
+
+.tool-btn-active {
+  background: #E8F5E9;
+  box-shadow: 0 2rpx 12rpx rgba(46, 125, 50, 0.2);
+}
+
+.tool-icon {
+  font-size: 36rpx;
+}
+
+.tool-label {
+  font-size: 22rpx;
+  color: #555;
+  margin-top: 6rpx;
+  font-weight: 500;
+}
+
+/* ── 当前地块信息 ── */
+.action-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 30rpx 16rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 20rpx 24rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.06);
+}
+
+.action-panel-left {
+  flex: 1;
+}
+
+.panel-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #2E7D32;
+}
+
+.panel-sub {
+  font-size: 22rpx;
+  color: #888;
+  margin-top: 4rpx;
+}
+
+.harvest-btn {
+  background: linear-gradient(135deg, #66BB6A, #43A047);
+  color: #fff;
+  font-size: 24rpx;
+  font-weight: 600;
+  padding: 12rpx 32rpx;
+  border-radius: 30rpx;
+}
+
+.harvest-btn-muted {
+  background: #E0E0E0;
+  color: #999;
+}
+
+/* ── XP进度条 ── */
+.xp-panel {
+  margin: 8rpx 30rpx 20rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 20rpx 24rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.06);
+}
+
+.xp-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.xp-label {
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.xp-val {
+  font-size: 22rpx;
+  color: #888;
+}
+
+.xp-track {
+  width: 100%;
+  height: 12rpx;
+  background: #E8F5E9;
+  border-radius: 6rpx;
+  overflow: hidden;
+}
+
+.xp-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #66BB6A, #2E7D32);
+  border-radius: 6rpx;
+  transition: width 0.5s;
+}
+
+/* ── 快速操作 ── */
+.quick-actions {
+  display: flex;
+  gap: 16rpx;
+  padding: 0 30rpx 20rpx;
+}
+
+.quick-btn {
+  flex: 1;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 20rpx 12rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.06);
+  transition: all 0.2s;
+}
+
+.quick-btn:active {
+  transform: scale(0.96);
+}
+
+.quick-btn-done {
+  opacity: 0.5;
+}
+
+.quick-icon {
+  font-size: 36rpx;
+  margin-bottom: 6rpx;
+}
+
+.quick-title {
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.quick-meta {
+  font-size: 20rpx;
+  color: #999;
+  margin-top: 4rpx;
+}
+
+/* ── 区块通用 ── */
+.section-block {
+  margin: 0 30rpx 20rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 20rpx 24rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.06);
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.section-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.section-meta {
+  font-size: 22rpx;
+  color: #999;
+}
+
+/* ── 设施商店 ── */
+.shop-scroll {
+  white-space: nowrap;
+}
+
+.shop-row {
+  display: flex;
+  gap: 16rpx;
+}
+
+.shop-card {
+  width: 160rpx;
+  flex-shrink: 0;
+  background: #F1F8E9;
+  border-radius: 16rpx;
+  padding: 16rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2rpx solid transparent;
+  transition: all 0.2s;
+}
+
+.shop-card-owned {
+  background: #E8F5E9;
+}
+
+.shop-card-equipped {
+  border-color: #43A047;
+}
+
+.shop-icon {
+  font-size: 40rpx;
+  margin-bottom: 8rpx;
+}
+
+.shop-name {
+  font-size: 22rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.shop-price {
+  font-size: 20rpx;
+  color: #FF8F00;
+  margin-top: 4rpx;
+  font-weight: 500;
+}
+
+/* ── 生态分区 ── */
+.district-row {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  padding: 12rpx 0;
+}
+
+.district-icon {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 14rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+  flex-shrink: 0;
+}
+
+.district-info {
+  flex: 1;
+}
+
+.district-title {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.district-meta {
+  font-size: 20rpx;
+  color: #999;
+  margin-top: 2rpx;
+}
+
+.district-divider {
+  height: 1rpx;
+  background: #F0F0F0;
+  margin: 4rpx 0;
+}
+
+/* ── 底部操作栏 ── */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16rpx 30rpx;
+  padding-bottom: calc(16rpx + env(safe-area-inset-bottom));
+  background: #fff;
+  box-shadow: 0 -2rpx 12rpx rgba(0, 0, 0, 0.06);
+  z-index: 10;
+}
+
+.bottom-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10rpx;
+  background: linear-gradient(135deg, #66BB6A, #43A047);
+  border-radius: 50rpx;
+  padding: 20rpx;
+  color: #fff;
+}
+
+.bottom-plus {
+  font-size: 32rpx;
+  font-weight: 700;
+}
+
+.bottom-text {
+  font-size: 26rpx;
+  font-weight: 500;
+}
+
+/* ── Snack消息 ── */
+.snack {
+  position: fixed;
+  top: 60rpx;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20rpx);
+  background: rgba(46, 125, 50, 0.9);
+  color: #fff;
+  font-size: 24rpx;
+  padding: 14rpx 32rpx;
+  border-radius: 30rpx;
+  z-index: 100;
+  opacity: 0;
+  transition: all 0.3s;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.snack-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}

@@ -1,0 +1,10 @@
+{
+  "upstream_package": "decode-uri-component",
+  "upstream_version": "0.5.1",
+  "upstream_repository": "https://github.com/SamVerschueren/decode-uri-component",
+  "upstream_source_sha256": "6a86ac891edf15c5efa0841ebb31935e3669d58b98318b57d7b08a4530317cb0",
+  "commonjs_source_sha256": "d688cf9bb49178fc54a34d53876d4f6959a892ad1eefd81612a2fea552f96911",
+  "transformation": "Replace exactly one export default function declaration with module.exports = function. No algorithm or error-behavior changes.",
+  "advisory": "https://github.com/advisories/GHSA-vcc3-ghjq-m6fr",
+  "reason": "Official ESM distribution breaks historical Node CommonJS query-string callers; actual TypeError observed. Browser Metro can handle it but CLI also needs compatibility."
+}

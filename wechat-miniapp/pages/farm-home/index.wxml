@@ -1,0 +1,140 @@
+<view class="game {{weatherView.cls}}">
+  <scroll-view
+    class="map-viewport"
+    scroll-x
+    scroll-y
+    enhanced
+    show-scrollbar="{{false}}"
+    scroll-left="{{mapScrollLeft}}"
+    scroll-top="{{mapScrollTop}}"
+  >
+  <view class="game-map">
+    <view class="grass grass-a"></view>
+    <view class="grass grass-b"></view>
+    <view class="tree tree-a"></view>
+    <view class="tree tree-b"></view>
+    <view class="tree tree-c"></view>
+    <view class="farmhouse">
+      <view class="house-roof"></view>
+      <view class="house-wall"></view>
+      <view class="house-door"></view>
+      <view class="house-window"></view>
+    </view>
+    <view class="barn">
+      <view class="barn-roof"></view>
+      <view class="barn-wall"></view>
+      <view class="barn-door"></view>
+    </view>
+    <view class="path path-main"></view>
+    <view class="path path-side"></view>
+    <view class="fence fence-top"></view>
+    <view class="fence fence-bottom"></view>
+
+    <view wx:for="{{decorView}}" wx:key="id" wx:if="{{item.owned}}" class="scene-decor {{item.cls}}" style="left: {{item.x}}rpx; top: {{item.y}}rpx;"></view>
+
+    <view
+      wx:for="{{plotsView}}"
+      wx:key="id"
+      class="plot {{item.ready ? 'plot-ready' : ''}} {{item.watered ? 'plot-watered' : ''}}"
+      style="left: {{item.x}}rpx; top: {{item.y}}rpx;"
+      bindtap="tapPlot"
+      data-id="{{item.id}}"
+    >
+      <view class="soil-lines"></view>
+      <view wx:if="{{item.hasCrop}}" class="crop {{item.cropCls}} {{item.stageCls}}">
+        <view class="leaf leaf-l"></view>
+        <view class="leaf leaf-r"></view>
+        <view class="fruit fruit-a"></view>
+        <view class="fruit fruit-b"></view>
+      </view>
+      <view wx:if="{{item.issueCls}}" class="plot-issue {{item.issueCls}}"></view>
+      <view class="plot-progress"><view class="plot-progress-fill" style="width: {{item.progress}}%;"></view></view>
+      <view class="plot-label">{{item.remainText}}</view>
+    </view>
+
+    <view class="animal cow"><view class="animal-head"></view><view class="animal-body"></view><view class="animal-leg leg-a"></view><view class="animal-leg leg-b"></view></view>
+    <view class="animal pig"><view class="animal-head"></view><view class="animal-body"></view><view class="animal-leg leg-a"></view><view class="animal-leg leg-b"></view></view>
+
+    <view class="avatar" style="left: {{state.avatarX}}rpx; top: {{state.avatarY}}rpx;">
+      <view class="avatar-hair"></view>
+      <view class="avatar-face"></view>
+      <view class="avatar-body"></view>
+      <view class="avatar-shadow"></view>
+    </view>
+  </view>
+  </scroll-view>
+
+  <view class="title-ribbon">
+    <view class="level-badge">{{state.level}}</view>
+    <view class="farm-title">我亲爱的农场</view>
+  </view>
+
+  <view class="profile-panel pixel-panel">
+    <view class="portrait"></view>
+    <view class="profile-name">你</view>
+    <view class="season-board">第14天 · {{timeText}}</view>
+  </view>
+
+  <view class="resource-panel">
+    <view class="resource-item coin-icon">{{state.coins}}</view>
+    <view class="resource-item gem-icon">{{state.gems}}</view>
+    <view class="resource-item weather-icon">{{weatherView.name}} {{weatherView.left}}</view>
+  </view>
+
+  <view class="inventory pixel-panel">
+    <view class="panel-head">
+      <button class="arrow-btn" bindtap="sellAll">售卖</button>
+      <view class="panel-title">背包</view>
+      <button class="arrow-btn" bindtap="resetGame">重置</button>
+    </view>
+    <view class="seed-grid">
+      <view wx:for="{{bagView}}" wx:key="id" class="seed-slot {{item.selected ? 'slot-selected' : ''}}" bindtap="selectSeed" data-id="{{item.id}}">
+        <view class="seed-icon seed-{{item.color}}"></view>
+        <view class="seed-name">{{item.name}}</view>
+        <view class="seed-count">x{{item.count}}</view>
+      </view>
+    </view>
+    <view class="notice-board">{{state.notice}}</view>
+  </view>
+
+  <view class="side-panel pixel-panel {{panelOpen ? '' : 'side-panel-closed'}}">
+    <view class="side-tab" bindtap="togglePanel">{{panelOpen ? '收起' : '任务'}}</view>
+    <view wx:if="{{panelOpen && activePanel === 'bag'}}">
+      <view class="panel-title small">每日任务</view>
+      <view wx:for="{{taskView}}" wx:key="id" class="task-line">
+        <view>
+          <view>{{item.name}}</view>
+          <view class="muted">{{item.progress}}/{{item.target}} · {{item.reward}}金币</view>
+        </view>
+        <button class="claim-btn {{item.canClaim ? 'claim-ready' : ''}}" bindtap="claimTask" data-id="{{item.id}}">{{item.done ? '已领' : '领取'}}</button>
+      </view>
+    </view>
+    <view wx:elif="{{panelOpen && activePanel === 'friends'}}">
+      <view class="panel-title small">好友农场</view>
+      <view wx:for="{{friendView}}" wx:key="id" class="friend-line">
+        <view>
+          <view>{{item.name}} Lv.{{item.level}}</view>
+          <view class="muted">成熟{{item.ready}} · {{item.cooldown}}</view>
+        </view>
+        <button class="claim-btn claim-ready" bindtap="stealFriend" data-id="{{item.id}}">采摘</button>
+      </view>
+    </view>
+    <view wx:elif="{{panelOpen}}">
+      <view class="panel-title small">建造商店</view>
+      <view wx:for="{{decorView}}" wx:key="id" class="friend-line">
+        <view>
+          <view>{{item.name}}</view>
+          <view class="muted">{{item.cost}}金币</view>
+        </view>
+        <button class="claim-btn {{item.owned ? '' : 'claim-ready'}}" bindtap="buyDecor" data-id="{{item.id}}">{{item.owned ? '已建' : '建造'}}</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="tool-dock">
+    <view wx:for="{{tools}}" wx:key="id" class="tool-button {{state.activeTool === item.id ? 'tool-active' : ''}}" bindtap="selectTool" data-id="{{item.id}}">
+      <view class="tool-icon tool-{{item.id}}"></view>
+      <view class="tool-name">{{item.name}}</view>
+    </view>
+  </view>
+</view>

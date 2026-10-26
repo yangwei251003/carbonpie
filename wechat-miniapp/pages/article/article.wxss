@@ -1,0 +1,329 @@
+/* ══ 文章详情样式 ══ */
+.article-scroll {
+  height: 100vh;
+  background: #f5f4ef;
+}
+
+/* ── 英雄图 ── */
+.article-hero {
+  position: relative;
+  height: 480rpx;
+  background: #1a2e1a;
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.hero-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #134234, #2d7a62);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 120rpx;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 40%, rgba(0,0,0,0.6));
+}
+
+.hero-back {
+  position: absolute;
+  top: 60rpx;
+  left: 24rpx;
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48rpx;
+  color: #134234;
+  font-weight: 300;
+  z-index: 2;
+}
+
+.hero-share {
+  position: absolute;
+  top: 60rpx;
+  right: 24rpx;
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36rpx;
+  z-index: 2;
+}
+
+/* ── 文章主体 ── */
+.article-body {
+  padding: 28rpx 28rpx 120rpx;
+  background: #f5f4ef;
+}
+
+/* ── 元信息行 ── */
+.article-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 14rpx;
+  margin-bottom: 16rpx;
+}
+
+.article-tag {
+  background: #eaf6ef;
+  color: #134234;
+  border-radius: 999rpx;
+  padding: 8rpx 20rpx;
+  font-size: 22rpx;
+  font-weight: 800;
+}
+
+.reading-level {
+  background: #fef9c3;
+  color: #92400e;
+  border-radius: 999rpx;
+  padding: 8rpx 20rpx;
+  font-size: 22rpx;
+  font-weight: 700;
+}
+
+/* ── 标题 ── */
+.article-title {
+  font-size: 48rpx;
+  font-weight: 900;
+  color: #173129;
+  line-height: 1.35;
+  letter-spacing: -1rpx;
+  margin-bottom: 16rpx;
+}
+
+/* ── 摘要 ── */
+.article-summary {
+  font-size: 28rpx;
+  color: #6a736d;
+  line-height: 1.8;
+  margin-bottom: 36rpx;
+  padding: 20rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  border-left: 6rpx solid #134234;
+}
+
+/* ── 段落标题 ── */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  margin-bottom: 16rpx;
+}
+
+.section-icon { font-size: 36rpx; }
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 900;
+  color: #173129;
+}
+
+/* ── 知识要点 ── */
+.facts-card {
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 24rpx;
+  margin-bottom: 36rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.06);
+}
+
+.fact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14rpx;
+  padding: 14rpx 0;
+  border-bottom: 1rpx solid #f5f2ee;
+}
+
+.fact-item:last-child { border-bottom: none; }
+
+.fact-dot {
+  width: 14rpx;
+  height: 14rpx;
+  border-radius: 50%;
+  background: #134234;
+  margin-top: 12rpx;
+  flex-shrink: 0;
+}
+
+.fact-text {
+  flex: 1;
+  font-size: 26rpx;
+  color: #31413a;
+  line-height: 1.7;
+}
+
+/* ── 正文 ── */
+.body-card {
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 28rpx;
+  margin-bottom: 36rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.06);
+}
+
+.paragraph {
+  font-size: 28rpx;
+  color: #2e3e38;
+  line-height: 1.85;
+  margin-bottom: 20rpx;
+}
+
+.paragraph:last-child { margin-bottom: 0; }
+
+.paragraph-first {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #173129;
+}
+
+/* ── 漫画面板 ── */
+.comic-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+  margin-bottom: 36rpx;
+}
+
+.comic-card {
+  background: #fff;
+  border-radius: 24rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.07);
+  border: 2rpx solid #f0ede8;
+}
+
+.comic-header {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  padding: 20rpx 24rpx 16rpx;
+  background: linear-gradient(90deg, #eaf6ef, #f5f4ef);
+}
+
+.comic-number {
+  width: 52rpx;
+  height: 52rpx;
+  border-radius: 50%;
+  background: #134234;
+  color: #fff;
+  font-size: 26rpx;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.comic-title {
+  font-size: 28rpx;
+  font-weight: 900;
+  color: #134234;
+  flex: 1;
+}
+
+.comic-scene {
+  height: 320rpx;
+  background: linear-gradient(135deg, #eaf6ef, #d4ece1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.comic-scene-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.comic-scene-placeholder {
+  font-size: 80rpx;
+  opacity: 0.4;
+  display: block;
+}
+
+/* 每个漫画格用不同底色区分，无图片时更好看 */
+.comic-card:nth-child(1) .comic-scene {
+  background: linear-gradient(135deg, #d4ece1, #b8dbcc);
+}
+.comic-card:nth-child(2) .comic-scene {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+}
+.comic-card:nth-child(3) .comic-scene {
+  background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+}
+
+.comic-body {
+  padding: 20rpx 24rpx;
+  font-size: 26rpx;
+  color: #31413a;
+  line-height: 1.75;
+}
+
+/* ── 来源 ── */
+.source-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12rpx;
+  background: #f0f4f1;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  margin-bottom: 24rpx;
+}
+
+.source-icon { font-size: 32rpx; flex-shrink: 0; }
+
+.source-text {
+  font-size: 22rpx;
+  color: #6a736d;
+  line-height: 1.7;
+  flex: 1;
+}
+
+/* ── 无数据 ── */
+.no-article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 20rpx;
+}
+
+.no-article-icon {
+  font-size: 100rpx;
+}
+
+.no-article-text {
+  font-size: 30rpx;
+  color: #6a736d;
+  font-weight: 600;
+}
+
+.no-article-back {
+  background: #134234;
+  color: #fff;
+  border-radius: 999rpx;
+  padding: 18rpx 40rpx;
+  font-size: 26rpx;
+  font-weight: 700;
+}

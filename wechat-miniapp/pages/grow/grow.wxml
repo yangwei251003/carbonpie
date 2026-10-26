@@ -1,0 +1,212 @@
+<!-- ── 低碳家园农场 WXML ── -->
+<view class="grow-page">
+  <scroll-view scroll-y class="grow-scroll">
+
+    <!-- ── 顶部HUD ── -->
+    <view class="grow-hud">
+      <view class="hud-left">
+        <view class="hud-title">低碳家园</view>
+        <view class="hud-sub">点击地块浇水、打扫和收获，让绿色行动长成作物</view>
+      </view>
+      <view class="level-badge">
+        <view class="level-text">Lv.{{homestead.level || 1}}</view>
+      </view>
+    </view>
+
+    <!-- ── 资源栏 ── -->
+    <view class="resource-row">
+      <view class="resource-pill">
+        <text class="resource-icon">🪙</text>
+        <text class="resource-text">{{homestead.carbon_coins || 0}} 碳币</text>
+      </view>
+      <view class="resource-pill">
+        <text class="resource-icon">✨</text>
+        <text class="resource-text">繁荣 {{homestead.eco_prosperity || 0}}</text>
+      </view>
+      <view class="resource-pill">
+        <text class="resource-icon">❤️</text>
+        <text class="resource-text">幸福 {{homestead.happiness || 100}}</text>
+      </view>
+    </view>
+
+    <!-- ── 农场场景 ── -->
+    <view class="game-scene">
+      <!-- 天空装饰 -->
+      <view class="scene-sky">
+        <view class="scene-sun"></view>
+        <view class="scene-cloud cloud-1"></view>
+        <view class="scene-cloud cloud-2"></view>
+      </view>
+      <!-- 山丘 -->
+      <view class="scene-mountain"></view>
+      <!-- 草地 -->
+      <view class="scene-field"></view>
+
+      <!-- 装饰设施 -->
+      <view class="decor-layer">
+        <view
+          wx:for="{{decor}}"
+          wx:key="id"
+          wx:if="{{item.unlocked}}"
+          class="scene-decor {{homestead.equipped_decor === item.id ? 'scene-decor-active' : ''}}"
+          style="left: {{item.leftPos}}rpx; top: {{item.topPos}}rpx;"
+        >
+          <text class="decor-emoji">{{item.icon}}</text>
+        </view>
+      </view>
+
+      <!-- 农田地块 -->
+      <view class="plot-board">
+        <view
+          wx:for="{{plots}}"
+          wx:key="id"
+          class="farm-plot {{selectedPlotIndex === index ? 'farm-plot-selected' : ''}} {{item.ready ? 'farm-plot-ready' : ''}}"
+          bindtap="selectPlot"
+          data-index="{{index}}"
+        >
+          <view wx:if="{{item.ready}}" class="ready-flag">✨可收</view>
+          <view class="crop-bubble">{{item.icon}}</view>
+          <view class="plot-name">{{item.name}}</view>
+          <view class="plot-stage">{{item.stageLabel}}</view>
+          <view class="plot-progress-track">
+            <view class="plot-progress-fill" style="width: {{item.progress}}%;"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- ── 工具栏 ── -->
+    <view class="tool-dock">
+      <view
+        wx:for="{{tools}}"
+        wx:key="key"
+        class="tool-btn {{tool === item.key ? 'tool-btn-active' : ''}}"
+        bindtap="selectTool"
+        data-key="{{item.key}}"
+      >
+        <text class="tool-icon">{{item.icon}}</text>
+        <text class="tool-label">{{item.label}}</text>
+      </view>
+    </view>
+
+    <!-- ── 当前地块信息 ── -->
+    <view class="action-panel" wx:if="{{plots[selectedPlotIndex]}}">
+      <view class="action-panel-left">
+        <view class="panel-title">{{plots[selectedPlotIndex].crop}}</view>
+        <view class="panel-sub">
+          {{plots[selectedPlotIndex].ready
+            ? '成熟啦，点击收获可得 ' + plots[selectedPlotIndex].rewardCoins + ' 碳币和 ' + plots[selectedPlotIndex].rewardXp + ' XP'
+            : '完成低碳记录可加快作物生长进度。'
+          }}
+        </view>
+      </view>
+      <view
+        class="harvest-btn {{!plots[selectedPlotIndex].ready ? 'harvest-btn-muted' : ''}}"
+        bindtap="selectPlot"
+        data-index="{{selectedPlotIndex}}"
+      >
+        {{plots[selectedPlotIndex].ready ? '收获' : '未熟'}}
+      </view>
+    </view>
+
+    <!-- ── XP进度条 ── -->
+    <view class="xp-panel">
+      <view class="xp-head">
+        <text class="xp-label">升级进度</text>
+        <text class="xp-val">{{xpRemainder}}/100 XP · Lv.{{homestead.level || 1}} {{levelTitle}}</text>
+      </view>
+      <view class="xp-track">
+        <view class="xp-fill" style="width: {{xpProgress}}%;"></view>
+      </view>
+    </view>
+
+    <!-- ── 快速操作 ── -->
+    <view class="quick-actions">
+      <view class="quick-btn" bindtap="handleWater">
+        <text class="quick-icon">💧</text>
+        <text class="quick-title">浇水</text>
+        <text class="quick-meta">剩余 {{remainingWater}}/3</text>
+      </view>
+      <view class="quick-btn" bindtap="handleClean">
+        <text class="quick-icon">🧹</text>
+        <text class="quick-title">打扫</text>
+        <text class="quick-meta">剩余 {{remainingClean}}/3</text>
+      </view>
+      <view class="quick-btn {{checkedInToday ? 'quick-btn-done' : ''}}" bindtap="handleCheckin">
+        <text class="quick-icon">📅</text>
+        <text class="quick-title">{{checkedInToday ? '已巡园' : '每日巡园'}}</text>
+        <text class="quick-meta">连签 {{homestead.checkin_streak || 0}} 天</text>
+      </view>
+    </view>
+
+    <!-- ── 设施商店 ── -->
+    <view class="section-block">
+      <view class="section-head">
+        <view class="section-title">🏪 设施商店</view>
+        <view class="section-meta">已建 {{decorUnlockCount}}/{{decorTotalCount}}</view>
+      </view>
+      <scroll-view scroll-x class="shop-scroll">
+        <view class="shop-row">
+          <view
+            wx:for="{{decor}}"
+            wx:key="id"
+            class="shop-card {{item.unlocked ? 'shop-card-owned' : ''}} {{item.equipped ? 'shop-card-equipped' : ''}}"
+            bindtap="handleEquip"
+            data-id="{{item.id}}"
+          >
+            <text class="shop-icon">{{item.icon}}</text>
+            <text class="shop-name">{{item.label}}</text>
+            <text class="shop-price">
+              {{item.unlocked ? (item.equipped ? '展示中' : '已拥有') : item.price + ' 碳币'}}
+            </text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+
+    <!-- ── 生态分区 ── -->
+    <view class="section-block">
+      <view class="section-title">🗺 生态分区</view>
+      <view class="district-row">
+        <view class="district-icon" style="background:#EAF6EF;">🌾</view>
+        <view class="district-info">
+          <view class="district-title">低碳农田 Lv.{{homestead.level || 1}}</view>
+          <view class="district-meta">作物产出 · 由低碳记录驱动</view>
+        </view>
+      </view>
+      <view class="district-divider"></view>
+      <view class="district-row">
+        <view class="district-icon" style="background:#FEF9C3;">☀️</view>
+        <view class="district-info">
+          <view class="district-title">清洁能源区 Lv.1</view>
+          <view class="district-meta">太阳能 · 风能 · 节电加速</view>
+        </view>
+      </view>
+      <view class="district-divider"></view>
+      <view class="district-row">
+        <view class="district-icon" style="background:#E0F4FB;">♻️</view>
+        <view class="district-info">
+          <view class="district-title">生态回收站 Lv.1</view>
+          <view class="district-meta">垃圾分类 · 循环利用加成</view>
+        </view>
+      </view>
+    </view>
+
+  </scroll-view>
+
+  <!-- ── 底部操作栏 ── -->
+  <view class="bottom-bar">
+    <view class="bottom-primary" bindtap="goRecord">
+      <text class="bottom-plus">＋</text>
+      <text class="bottom-text">记录低碳行为，为农场补能</text>
+    </view>
+    <view class="bottom-primary" bindtap="goFarmHome" style="margin-top: 12rpx; background: linear-gradient(90deg, #2f8b42, #4caf50);">
+      <text class="bottom-plus">🎮</text>
+      <text class="bottom-text">进入青禾田园（新经营玩法）</text>
+    </view>
+  </view>
+
+  <!-- ── Snack消息 ── -->
+  <view class="snack {{snackVisible ? 'snack-visible' : ''}}">{{snackText}}</view>
+
+</view>

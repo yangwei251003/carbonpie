@@ -1,0 +1,71 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/record/record",
+    "pages/discover/discover",
+    "pages/article/article",
+    "pages/grow/grow",
+    "pages/me/me",
+    "pages/ai/ai",
+    "pages/share-week/share-week",
+    "pages/photo-album/photo-album",
+    "pages/profile-edit/profile-edit",
+    "pages/about/about",
+    "pages/privacy/privacy",
+    "pages/farm-home/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "碳果派",
+    "navigationBarBackgroundColor": "#F7F6F2",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F7F6F2",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "#6A736D",
+    "selectedColor": "#134234",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "images/tab/home.png",
+        "selectedIconPath": "images/tab/home-active.png"
+      },
+      {
+        "pagePath": "pages/record/record",
+        "text": "记录",
+        "iconPath": "images/tab/record.png",
+        "selectedIconPath": "images/tab/record-active.png"
+      },
+      {
+        "pagePath": "pages/discover/discover",
+        "text": "发现",
+        "iconPath": "images/tab/discover.png",
+        "selectedIconPath": "images/tab/discover-active.png"
+      },
+      {
+        "pagePath": "pages/grow/grow",
+        "text": "家园",
+        "iconPath": "images/tab/grow.png",
+        "selectedIconPath": "images/tab/grow-active.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "images/tab/me.png",
+        "selectedIconPath": "images/tab/me-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "用于获取本地天气和空气质量数据"
+    }
+  },
+  "requiredPrivateInfos": ["getLocation"]
+}

@@ -1,0 +1,64 @@
+<view class="guide-page">
+  <scroll-view scroll-y class="guide-scroll" enhanced show-scrollbar="{{false}}">
+    <view class="hero-card">
+      <view class="hero-icon">🌿</view>
+      <view class="hero-kicker">CarbonPie Action Guide</view>
+      <view class="hero-title">低碳锦囊</view>
+      <view class="hero-sub">把常见低碳场景整理成可执行清单，打开就能挑一件今天完成。</view>
+    </view>
+
+    <view class="today-card">
+      <view class="today-label">今日建议</view>
+      <view class="today-text">{{dailyTip}}</view>
+      <button class="today-btn" bindtap="goRecord">去记录行动</button>
+    </view>
+
+    <view class="section-head">
+      <view class="section-title">行动卡片</view>
+      <view class="section-sub">点击查看步骤</view>
+    </view>
+
+    <view
+      wx:for="{{guideCards}}"
+      wx:key="id"
+      class="guide-card {{activeCardId === item.id ? 'guide-card-open' : ''}}"
+      bindtap="toggleCard"
+      data-id="{{item.id}}"
+    >
+      <view class="card-main">
+        <view class="card-icon">{{item.icon}}</view>
+        <view class="card-content">
+          <view class="card-title-row">
+            <view class="card-title">{{item.title}}</view>
+            <view class="card-tag">{{item.tag}}</view>
+          </view>
+          <view class="card-summary">{{item.summary}}</view>
+          <view class="card-saving">参考减碳：{{item.saving}}</view>
+        </view>
+        <view class="card-arrow">{{activeCardId === item.id ? '⌃' : '⌄'}}</view>
+      </view>
+
+      <view class="step-list" wx:if="{{activeCardId === item.id}}">
+        <view wx:for="{{item.steps}}" wx:key="*this" class="step-item">
+          <view class="step-index">{{index + 1}}</view>
+          <view class="step-text">{{item}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="tool-row">
+      <view class="tool-card" bindtap="goDiscover">
+        <view class="tool-icon">📖</view>
+        <view class="tool-title">科普发现</view>
+        <view class="tool-sub">继续阅读低碳知识</view>
+      </view>
+      <view class="tool-card" bindtap="goAlbum">
+        <view class="tool-icon">📸</view>
+        <view class="tool-title">影像记录</view>
+        <view class="tool-sub">查看拍照打卡成果</view>
+      </view>
+    </view>
+
+    <view class="bottom-space"></view>
+  </scroll-view>
+</view>

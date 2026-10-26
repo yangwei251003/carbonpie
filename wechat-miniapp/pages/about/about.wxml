@@ -1,0 +1,65 @@
+<view class="about-page">
+  <view class="about-header">
+    <view class="about-logo">🌿</view>
+    <view class="about-name">CarbonPie 碳果派</view>
+    <view class="about-slogan">把绿色生活过成每天都想打开的产品</view>
+  </view>
+
+  <view class="about-card">
+    <view class="card-row">
+      <view class="card-label">应用版本</view>
+      <view class="card-value">1.0.0</view>
+    </view>
+    <view class="card-divider"></view>
+    <view class="card-row">
+      <view class="card-label">数据模式</view>
+      <view class="card-value">本地记录 + 可选云端同步</view>
+    </view>
+    <view class="card-divider"></view>
+    <view class="card-row">
+      <view class="card-label">平台</view>
+      <view class="card-value">微信小程序</view>
+    </view>
+  </view>
+
+  <view class="about-section">
+    <view class="section-title">方法论说明</view>
+    <view class="section-text">
+      CarbonPie 的减碳估算面向日常行为记录与公众科普，适合用于建立低碳习惯、观察个人趋势和生成阶段性总结。
+    </view>
+    <view class="section-text">
+      减碳量采用避免排放思路进行简化估算，会因地区、场景和行为细节不同而存在偏差，因此更适合用作相对比较和持续激励。
+    </view>
+    <view class="section-text">
+      碳币系统仅用于应用内成长和激励，不对应任何现实世界交易权益。
+    </view>
+  </view>
+
+  <view class="about-section">
+    <view class="section-title">核心功能</view>
+    <view class="feature-list">
+      <view class="feature-item">🚲 低碳行为记录与减碳追踪</view>
+      <view class="feature-item">📸 拍照打卡与本地影像留存</view>
+      <view class="feature-item">🏡 家园农场成长玩法</view>
+      <view class="feature-item">🌿 低碳锦囊与行动建议</view>
+      <view class="feature-item">📖 低碳科普内容浏览</view>
+      <view class="feature-item">🌤️ 环境数据与出行提示</view>
+      <view class="feature-item">📊 周报导出与数据备份</view>
+    </view>
+  </view>
+
+  <view class="about-section">
+    <view class="section-title">数据说明</view>
+    <view class="section-text">
+      行为记录、资料、家园进度默认保存在当前设备。若云端登录可用，会同步部分文本数据，帮助你在重新进入时恢复记录。
+    </view>
+    <view class="section-text">
+      拍照打卡图片保留在本机，小程序不会自动把原图上传到云端，因此跨设备仅能同步图片对应的文字记录。
+    </view>
+  </view>
+
+  <view class="about-footer">
+    <view class="footer-text">Built with integrity for our shared future.</view>
+    <view class="footer-sub">为我们的共享未来而构建</view>
+  </view>
+</view>

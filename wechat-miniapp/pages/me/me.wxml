@@ -1,0 +1,128 @@
+<view class="page">
+  <!-- 顶部标题栏 -->
+  <view class="header">
+    <text class="header-title">CarbonPie</text>
+  </view>
+
+  <scroll-view scroll-y class="scroll-area" enhanced show-scrollbar="{{false}}">
+    <!-- 头像区域 -->
+    <view class="avatar-section">
+      <view class="avatar-ring">
+        <view class="avatar-inner">
+          <text class="avatar-icon">👤</text>
+        </view>
+      </view>
+      <text class="user-name">{{nickname}}</text>
+      <view class="level-tag">
+        <text class="level-tag-text">Lv {{level}} {{levelTitle}}</text>
+      </view>
+      <view class="cloud-status {{cloudEnabled ? 'cloud-status-enabled' : ''}}">{{cloudStatus}}</view>
+    </view>
+
+    <!-- 统计双栏 -->
+    <view class="stats-row">
+      <view class="stat-card">
+        <text class="stat-label">TOTAL REDUCTION</text>
+        <text class="stat-value">{{totalCarbon}} kg</text>
+        <text class="stat-sub">累计减碳量</text>
+      </view>
+      <view class="stat-card stat-card-right">
+        <text class="stat-label">RECORD COUNT</text>
+        <text class="stat-value">{{activeDays}} 天</text>
+        <text class="stat-sub">连续打卡 {{checkinStreak}} 天</text>
+      </view>
+    </view>
+
+    <!-- 碳币余额卡片 -->
+    <view class="coins-card">
+      <text class="coins-icon">🌿</text>
+      <view class="coins-info">
+        <text class="coins-label">我的碳币</text>
+        <text class="coins-value">{{carbonCoins}}</text>
+      </view>
+      <view class="go-shop-btn" bindtap="goShop">
+        <text class="go-shop-text">去商店 →</text>
+      </view>
+    </view>
+
+    <!-- MY ACTIVITIES -->
+    <text class="group-label">MY ACTIVITIES</text>
+    <view class="list-group">
+      <view
+        wx:for="{{activityList}}"
+        wx:key="title"
+        class="list-item {{index < activityList.length - 1 ? 'list-item-border' : ''}}"
+        data-url="{{item.url}}"
+        bindtap="onActivityTap"
+      >
+        <view class="list-icon-wrap icon-{{item.icon}}">
+          <text class="list-icon-text">{{item.icon === 'leaf' ? '🍃' : item.icon === 'home' ? '🏡' : item.icon === 'photo' ? '📷' : item.icon === 'ai' ? '🤖' : '🏆'}}</text>
+        </view>
+        <view class="list-item-content">
+          <text class="list-item-title">{{item.title}}</text>
+          <text class="list-item-sub">{{item.sub}}</text>
+        </view>
+        <text class="list-arrow">›</text>
+      </view>
+    </view>
+
+    <!-- TOOLS & SETTINGS -->
+    <text class="group-label">TOOLS & SETTINGS</text>
+    <view class="list-group">
+      <view
+        wx:for="{{toolList}}"
+        wx:key="title"
+        class="list-item {{index < toolList.length - 1 ? 'list-item-border' : ''}}"
+        data-action="{{item.action}}"
+        data-url="{{item.url}}"
+        bindtap="onToolTap"
+      >
+        <view class="list-icon-wrap icon-{{item.icon}}">
+          <text class="list-icon-text">{{item.icon === 'json' ? '📋' : item.icon === 'csv' ? '📄' : item.icon === 'poster' ? '🖼️' : item.icon === 'edit' ? '✏️' : item.icon === 'about' ? '⚙️' : '🔒'}}</text>
+        </view>
+        <view class="list-item-content">
+          <text class="list-item-title">{{item.title}}</text>
+          <text class="list-item-sub">{{item.sub}}</text>
+        </view>
+        <text class="list-arrow">›</text>
+      </view>
+    </view>
+
+    <!-- 危险操作区 -->
+    <view class="danger-card">
+      <view class="danger-btn" bindtap="showClearConfirm">
+        <text class="danger-icon">🗑️</text>
+        <text class="danger-text">清除本机数据</text>
+      </view>
+    </view>
+
+    <!-- 版本号 -->
+    <view class="version-area">
+      <text class="version-text">CarbonPie v{{version}}</text>
+      <text class="version-sub">Built with integrity for our shared future.</text>
+    </view>
+
+    <view style="height: 60rpx;"></view>
+  </scroll-view>
+
+  <!-- 清除确认弹窗 -->
+  <view class="modal-mask" wx:if="{{showClearModal}}" bindtap="cancelClear">
+    <view class="modal-box" catchtap="">
+      <text class="modal-title">确认清除数据</text>
+      <text class="modal-msg">此操作将删除本机所有低碳记录、家园数据和用户资料，且不可恢复。确定要继续吗？</text>
+      <view class="modal-actions">
+        <view class="modal-btn cancel-btn" bindtap="cancelClear">
+          <text class="modal-btn-text">取消</text>
+        </view>
+        <view class="modal-btn confirm-btn" bindtap="confirmClear">
+          <text class="modal-btn-text confirm-btn-text">确定清除</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- Toast 提示 -->
+  <view class="snack-bar" wx:if="{{snackMsg}}">
+    <text class="snack-text">{{snackMsg}}</text>
+  </view>
+</view>

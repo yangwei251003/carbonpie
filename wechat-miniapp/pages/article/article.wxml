@@ -1,0 +1,90 @@
+<scroll-view scroll-y class="article-scroll" wx:if="{{article}}">
+
+  <view class="article-hero">
+    <image
+      wx:if="{{article.hero_image_url}}"
+      class="hero-img"
+      src="{{article.hero_image_url}}"
+      mode="aspectFill"
+    />
+    <view wx:else class="hero-placeholder">🌿</view>
+    <view class="hero-overlay"></view>
+    <view class="hero-back" bindtap="goBack">‹</view>
+    <view class="hero-share" bindtap="share">📤</view>
+  </view>
+
+  <view class="article-body">
+    <view class="article-meta-row">
+      <view class="article-tag">{{article.tag || 'AI科普'}}</view>
+      <view wx:if="{{article.reading_level}}" class="reading-level">
+        {{article.reading_level === 'basic' ? '🔰 基础' : article.reading_level === 'intermediate' ? '📘 进阶' : '🎓 深度'}}
+      </view>
+    </view>
+
+    <view class="article-title">{{article.title}}</view>
+    <view class="article-summary">{{article.summary}}</view>
+
+    <block wx:if="{{article.facts && article.facts.length > 0}}">
+      <view class="section-header">
+        <view class="section-icon">💡</view>
+        <view class="section-title">知识要点</view>
+      </view>
+      <view class="facts-card">
+        <view wx:for="{{article.facts}}" wx:key="*this" class="fact-item">
+          <view class="fact-dot"></view>
+          <view class="fact-text">{{item}}</view>
+        </view>
+      </view>
+    </block>
+
+    <block wx:if="{{article.paragraphs && article.paragraphs.length > 0}}">
+      <view class="section-header">
+        <view class="section-icon">📖</view>
+        <view class="section-title">科普正文</view>
+      </view>
+      <view class="body-card">
+        <view
+          wx:for="{{article.paragraphs}}"
+          wx:key="*this"
+          class="paragraph {{index === 0 ? 'paragraph-first' : ''}}"
+        >{{item}}</view>
+      </view>
+    </block>
+
+    <block wx:if="{{article.comic_panels && article.comic_panels.length > 0}}">
+      <view class="section-header">
+        <view class="section-icon">🎨</view>
+        <view class="section-title">三格漫画讲明白</view>
+      </view>
+      <view class="comic-container">
+        <view wx:for="{{article.comic_panels}}" wx:key="title" class="comic-card">
+          <view class="comic-header">
+            <view class="comic-number">{{index + 1}}</view>
+            <view class="comic-title">{{item.title}}</view>
+          </view>
+          <view class="comic-scene">
+            <image wx:if="{{item.imageUrl}}" class="comic-scene-img" src="{{item.imageUrl}}" mode="aspectFill" lazy-load binderror="onComicImageError" data-index="{{index}}" />
+            <view wx:else class="comic-scene-placeholder">🎨</view>
+          </view>
+          <view class="comic-body">{{item.body}}</view>
+        </view>
+      </view>
+    </block>
+
+    <view wx:if="{{article.source_note}}" class="source-card">
+      <view class="source-icon">📰</view>
+      <view class="source-text">{{article.source_note}}</view>
+    </view>
+  </view>
+</scroll-view>
+
+<view wx:elif="{{loading}}" class="no-article">
+  <view class="no-article-icon">⏳</view>
+  <view class="no-article-text">文章加载中</view>
+</view>
+
+<view wx:else class="no-article">
+  <view class="no-article-icon">📭</view>
+  <view class="no-article-text">{{missing ? '未找到这篇文章' : '文章加载失败'}}</view>
+  <view class="no-article-back" bindtap="goBack">← 返回</view>
+</view>

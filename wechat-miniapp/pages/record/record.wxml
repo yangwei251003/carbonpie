@@ -1,0 +1,77 @@
+<view class="container">
+  <view class="hero">
+    <view class="hero-kicker">今日经营</view>
+    <view class="hero-title">把每一次低碳行动记成成长值</view>
+    <view class="hero-sub">记录会沉淀成碳币、减碳量和影像，同步到家园农场。</view>
+  </view>
+
+  <view class="card form-card">
+    <view class="section-title">快速记录</view>
+    <view class="action-grid">
+      <view
+        wx:for="{{actions}}"
+        wx:key="id"
+        class="action-chip {{selectedActionId === item.id ? 'action-chip-active' : ''}}"
+        style="background: {{selectedActionId === item.id ? '#134234' : item.theme}}"
+        data-id="{{item.id}}"
+        bindtap="chooseAction"
+      >
+        <view class="action-icon">{{item.icon}}</view>
+        <view class="action-name {{selectedActionId === item.id ? 'active-text' : ''}}">{{item.title}}</view>
+        <view class="action-unit {{selectedActionId === item.id ? 'active-sub' : ''}}">{{item.carbonPerUnit}}kg/{{item.unit}}</view>
+      </view>
+    </view>
+
+    <view class="field">
+      <view class="field-label">数量</view>
+      <input class="field-input" type="digit" value="{{amount}}" bindinput="handleAmountInput" placeholder="例如 2 公里 / 1 次" />
+    </view>
+
+    <view class="field">
+      <view class="field-label">备注</view>
+      <textarea class="field-textarea" value="{{note}}" bindinput="handleNoteInput" placeholder="写一句今天的低碳行动，比如：午饭光盘、骑车去图书馆" />
+    </view>
+
+    <view class="button-row">
+      <button class="primary-btn" bindtap="submitRecord">提交记录</button>
+      <button class="ghost-btn" bindtap="handlePhotoCheckin">拍照打卡</button>
+    </view>
+  </view>
+
+  <view class="card panel">
+    <view class="section-head">
+      <view class="section-title">最近记录</view>
+      <button class="mini-link" bindtap="goAlbum">影像册</button>
+    </view>
+    <view wx:if="{{recentRecords.length === 0}}" class="empty">还没有记录，今天就从第一笔开始。</view>
+    <view wx:for="{{recentRecords}}" wx:key="id" class="record-item">
+      <view>
+        <view class="record-title">{{item.title}}</view>
+        <view class="record-meta">{{item.amount}}{{item.unit}} · {{item.note || '已记录一次低碳行动'}}</view>
+      </view>
+      <view class="record-side">
+        <view class="record-carbon">~{{item.carbon}}kg</view>
+        <view class="record-reward">+{{item.reward}}碳币</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="card panel">
+    <view class="section-head">
+      <view class="section-title">拍照打卡影像</view>
+    </view>
+    <view wx:if="{{recentPhotos.length === 0}}" class="empty">拍下你的通勤、节电、回收或光盘瞬间，它们会留在这里。</view>
+    <scroll-view wx:else scroll-x="true" class="photo-scroll">
+      <view class="photo-row">
+        <view wx:for="{{recentPhotos}}" wx:key="id" class="photo-card">
+          <block wx:if="{{item.localPath}}">
+            <image class="photo-img" src="{{item.localPath}}" mode="aspectFill"></image>
+          </block>
+          <view wx:else class="photo-img photo-placeholder">仅本机可查看</view>
+          <view class="photo-title">{{item.title}}</view>
+          <view class="photo-note">{{item.encouragement}}</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

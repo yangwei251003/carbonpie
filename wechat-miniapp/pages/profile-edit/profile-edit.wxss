@@ -1,0 +1,79 @@
+.container {
+  padding: 32rpx;
+  background: #f5f7f5;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.form {
+  background: #ffffff;
+  border-radius: 20rpx;
+  padding: 8rpx 32rpx;
+  margin-bottom: 40rpx;
+}
+
+.form-item {
+  padding: 28rpx 0;
+  border-bottom: 1rpx solid #edf0eb;
+}
+
+.form-item:last-child {
+  border-bottom: none;
+}
+
+.form-label {
+  font-size: 26rpx;
+  font-weight: 700;
+  color: #134234;
+  margin-bottom: 16rpx;
+}
+
+.form-input {
+  font-size: 28rpx;
+  color: #333;
+  padding: 16rpx 20rpx;
+  background: #f5f7f5;
+  border-radius: 12rpx;
+  border: 1rpx solid #e2e6e3;
+}
+
+.form-textarea {
+  font-size: 28rpx;
+  color: #333;
+  padding: 16rpx 20rpx;
+  background: #f5f7f5;
+  border-radius: 12rpx;
+  border: 1rpx solid #e2e6e3;
+  width: 100%;
+  min-height: 120rpx;
+  box-sizing: border-box;
+}
+
+.form-picker {
+  font-size: 28rpx;
+  color: #333;
+  padding: 16rpx 20rpx;
+  background: #f5f7f5;
+  border-radius: 12rpx;
+  border: 1rpx solid #e2e6e3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.picker-arrow {
+  color: #9ca3af;
+  font-size: 28rpx;
+}
+
+.save-btn {
+  background: #134234;
+  color: #ffffff;
+  border: none;
+  border-radius: 999rpx;
+  font-size: 30rpx;
+  font-weight: 700;
+  height: 88rpx;
+  line-height: 88rpx;
+  margin-top: 20rpx;
+}

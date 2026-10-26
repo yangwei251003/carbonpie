@@ -1,0 +1,112 @@
+.about-page {
+  padding: 24rpx;
+  padding-bottom: calc(40rpx + env(safe-area-inset-bottom));
+}
+
+.about-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40rpx 30rpx;
+}
+
+.about-logo {
+  font-size: 80rpx;
+  margin-bottom: 16rpx;
+}
+
+.about-name {
+  font-size: 36rpx;
+  font-weight: 800;
+  color: #134234;
+}
+
+.about-slogan {
+  font-size: 24rpx;
+  color: #6a736d;
+  margin-top: 8rpx;
+}
+
+.about-card {
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 8rpx 28rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.04);
+  border: 1rpx solid #edf0eb;
+}
+
+.card-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+}
+
+.card-label {
+  font-size: 26rpx;
+  color: #6a736d;
+}
+
+.card-value {
+  font-size: 26rpx;
+  color: #173129;
+  font-weight: 600;
+}
+
+.card-divider {
+  height: 1rpx;
+  background: #f0f2ee;
+}
+
+.about-section {
+  margin-bottom: 24rpx;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: 800;
+  color: #134234;
+  margin-bottom: 16rpx;
+}
+
+.section-text {
+  font-size: 24rpx;
+  color: #4a554e;
+  line-height: 1.8;
+  margin-bottom: 12rpx;
+}
+
+.feature-list {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 12rpx 24rpx;
+  border: 1rpx solid #edf0eb;
+}
+
+.feature-item {
+  padding: 14rpx 0;
+  font-size: 26rpx;
+  color: #31413a;
+  border-bottom: 1rpx solid #f5f6f2;
+}
+
+.feature-item:last-child {
+  border-bottom: none;
+}
+
+.about-footer {
+  text-align: center;
+  padding: 40rpx 0;
+}
+
+.footer-text {
+  font-size: 22rpx;
+  color: #9ca3af;
+}
+
+.footer-sub {
+  font-size: 20rpx;
+  color: #c4c8ce;
+  margin-top: 6rpx;
+}

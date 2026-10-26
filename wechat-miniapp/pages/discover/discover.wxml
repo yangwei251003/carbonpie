@@ -1,0 +1,256 @@
+<!-- 发现页 -->
+<view class="page">
+  <!-- 顶部 Header -->
+  <view class="header">
+    <view class="header-left">
+      <view class="avatar-circle">
+        <text class="avatar-icon">⊙</text>
+      </view>
+      <text class="header-title">CarbonPie</text>
+    </view>
+    <view class="bell-btn">
+      <text class="bell-icon">🔔</text>
+    </view>
+  </view>
+
+  <!-- Tab 切换 -->
+  <view class="tab-bar">
+    <view
+      class="tab-btn {{activeTab === 'articles' ? 'tab-active' : ''}}"
+      bindtap="switchTab"
+      data-tab="articles"
+    >
+      <text class="tab-text {{activeTab === 'articles' ? 'tab-text-active' : ''}}">科普发现</text>
+    </view>
+    <view
+      class="tab-btn {{activeTab === 'community' ? 'tab-active' : ''}}"
+      bindtap="switchTab"
+      data-tab="community"
+    >
+      <text class="tab-text {{activeTab === 'community' ? 'tab-text-active' : ''}}">社区挑战</text>
+    </view>
+  </view>
+
+  <!-- 科普发现 Tab -->
+  <scroll-view wx:if="{{activeTab === 'articles'}}" scroll-y class="content-scroll" enhanced show-scrollbar="{{false}}">
+    <view class="content">
+
+      <!-- 低碳百科馆介绍卡片 -->
+      <view class="editorial-card">
+        <view class="editorial-top">
+          <view class="editorial-text-wrap">
+            <text class="editorial-kicker">低碳百科馆</text>
+            <text class="editorial-title">每天读一篇能看懂、愿意实践的低碳科普</text>
+          </view>
+          <view class="editorial-spark">✨</view>
+        </view>
+        <text class="editorial-desc">围绕政策、节能、饮食和回收整理精选内容，用更轻松的方式把低碳知识讲明白。</text>
+        <view class="editorial-pills">
+          <text class="editorial-pill">专题内容</text>
+          <text class="editorial-pill">每日更新</text>
+          <text class="editorial-pill">实践建议</text>
+        </view>
+      </view>
+
+      <!-- 搜索栏 -->
+      <view class="search-bar">
+        <text class="search-icon">🔍</text>
+        <input
+          class="search-input"
+          placeholder="搜科普文章"
+          placeholder-class="search-placeholder"
+          value="{{search}}"
+          bindinput="onSearchInput"
+        />
+        <text wx:if="{{search.length > 0}}" class="search-clear" bindtap="clearSearch">✕</text>
+      </view>
+
+      <!-- 分类筛选横滑 -->
+      <scroll-view scroll-x class="filter-scroll" enhanced show-scrollbar="{{false}}">
+        <view class="filter-list">
+          <view
+            wx:for="{{filters}}"
+            wx:key="key"
+            class="filter-chip {{activeFilter === item.key ? 'filter-active' : ''}}"
+            bindtap="toggleFilter"
+            data-key="{{item.key}}"
+          >
+            <text class="filter-icon" wx:if="{{item.icon === 'bicycle'}}">🚲</text>
+            <text class="filter-icon" wx:elif="{{item.icon === 'lightning-bolt'}}">⚡</text>
+            <text class="filter-icon" wx:elif="{{item.icon === 'food-apple'}}">🥗</text>
+            <text class="filter-icon" wx:elif="{{item.icon === 'recycle'}}">♻️</text>
+            <text class="filter-icon" wx:elif="{{item.icon === 'newspaper'}}">📰</text>
+            <text class="filter-text {{activeFilter === item.key ? 'filter-text-active' : ''}}">{{item.key}}</text>
+          </view>
+        </view>
+      </scroll-view>
+
+      <!-- 精选 Banner -->
+      <view wx:if="{{!search && !activeFilter && featured}}" class="featured-banner" bindtap="openFeatured">
+        <image wx:if="{{featured.hero_image_url}}" src="{{featured.hero_image_url}}" mode="aspectFill" class="featured-bg-img" />
+        <view class="featured-overlay"></view>
+        <view class="featured-content">
+          <view class="featured-badge">
+            <text class="featured-badge-text">热门推荐</text>
+          </view>
+          <text class="featured-title">{{featured.title}}</text>
+          <text class="featured-subtitle">{{featured.summary || (featured.paragraphs && featured.paragraphs[0]) || ''}}</text>
+        </view>
+      </view>
+
+      <!-- 加载状态 -->
+      <view wx:if="{{loading}}" class="loading-wrap">
+        <text class="loading-text">加载中...</text>
+      </view>
+
+      <!-- 文章列表区 -->
+      <view wx:elif="{{filteredArticles.length > 0}}">
+        <view class="section-header">
+          <text class="section-title">最新探索</text>
+          <text class="section-count">全部 {{filteredArticles.length}} 篇 ›</text>
+        </view>
+
+        <view wx:if="{{featured && (search || activeFilter)}}" class="article-card" bindtap="openFeatured">
+          <view class="article-thumb">
+            <image wx:if="{{featured.hero_image_url}}" src="{{featured.hero_image_url}}" mode="aspectFill" class="article-thumb-img" lazy-load />
+            <text wx:else class="thumb-placeholder">🍃</text>
+          </view>
+          <view class="article-info">
+            <text class="article-title-text">{{featured.title}}</text>
+            <text class="article-excerpt">{{featured.summary || (featured.paragraphs && featured.paragraphs[0]) || ''}}</text>
+            <view class="article-meta">
+              <text class="meta-icon">⏱</text>
+              <text class="meta-text">{{featured.readingMinutes || '3'}} min read</text>
+              <view wx:if="{{featured.tag}}" class="article-tag">
+                <text class="article-tag-text">{{featured.tag}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view
+          wx:for="{{others}}"
+          wx:key="slug"
+          class="article-card"
+          bindtap="openArticle"
+          data-slug="{{item.slug}}"
+        >
+          <view class="article-thumb">
+            <image wx:if="{{item.hero_image_url}}" src="{{item.hero_image_url}}" mode="aspectFill" class="article-thumb-img" lazy-load />
+            <text wx:else class="thumb-placeholder">🍃</text>
+          </view>
+          <view class="article-info">
+            <text class="article-title-text">{{item.title}}</text>
+            <text class="article-excerpt">{{item.summary || (item.paragraphs && item.paragraphs[0]) || ''}}</text>
+            <view class="article-meta">
+              <text class="meta-icon">⏱</text>
+              <text class="meta-text">{{item.readingMinutes || '3'}} min read</text>
+              <view wx:if="{{item.tag}}" class="article-tag">
+                <text class="article-tag-text">{{item.tag}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view wx:else class="empty-wrap">
+        <text class="empty-icon">📭</text>
+        <text class="empty-text">{{articleError || '暂无相关文章'}}</text>
+      </view>
+
+      <!-- 底部间距 -->
+      <view style="height: 40rpx;"></view>
+    </view>
+  </scroll-view>
+
+  <!-- 社区挑战 Tab -->
+  <scroll-view wx:if="{{activeTab === 'community'}}" scroll-y class="content-scroll" enhanced show-scrollbar="{{false}}">
+    <view class="content">
+
+      <!-- 社区标题 -->
+      <text class="community-title">低碳社区</text>
+      <text class="community-subtitle">看看好友今天把低碳生活过成了什么样。</text>
+
+      <!-- 好友动态区域 -->
+      <view class="feed-header-card">
+        <view>
+          <text class="feed-header-title">好友动态</text>
+          <text class="feed-header-sub">模拟展示 · {{friendFeed.length}} 条记录</text>
+        </view>
+        <view class="feed-header-btn">
+          <text class="feed-header-btn-text">更多</text>
+        </view>
+      </view>
+
+      <view class="friend-feed-list">
+        <view wx:for="{{friendFeed}}" wx:key="id" class="friend-feed-card">
+          <view class="friend-feed-body">
+            <view class="friend-feed-top">
+              <view class="friend-avatar">
+                <text class="friend-avatar-text">{{item.avatar}}</text>
+              </view>
+              <view class="friend-info">
+                <text class="friend-name">{{item.name}}</text>
+                <text class="friend-time">{{item.time}}</text>
+              </view>
+              <text class="friend-kg">{{item.kg}}</text>
+            </view>
+            <text class="friend-action">{{item.action}}</text>
+            <text class="friend-summary">{{item.summary}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 精选挑战卡片 -->
+      <view wx:for="{{challenges}}" wx:key="id" class="challenge-card">
+        <view class="challenge-bg-decoration"></view>
+        <view class="challenge-badge">
+          <text class="challenge-badge-text">{{item.badge}}</text>
+        </view>
+        <text class="challenge-title">{{item.title}}</text>
+        <text class="challenge-progress-label">当前进度 <text class="progress-bold">{{item.progress}}/{{item.total}} 天</text></text>
+        <view class="challenge-bar">
+          <view class="challenge-bar-fill" style="width: {{item.progressPercent}}%;"></view>
+        </view>
+        <view class="challenge-btn">
+          <text class="challenge-btn-text">继续挑战</text>
+        </view>
+      </view>
+
+      <!-- 活跃小组 -->
+      <view class="section-header">
+        <text class="section-title">活跃小组</text>
+        <text class="section-count">查看全部 ›</text>
+      </view>
+
+      <view wx:for="{{groups}}" wx:key="id" class="group-card">
+        <view class="group-icon-wrap">
+          <text wx:if="{{item.icon === 'bicycle'}}" class="group-icon">🚲</text>
+          <text wx:elif="{{item.icon === 'food-apple'}}" class="group-icon">🥗</text>
+          <text wx:elif="{{item.icon === 'solar-power'}}" class="group-icon">☀️</text>
+          <text wx:else class="group-icon">🌍</text>
+        </view>
+        <view class="group-info">
+          <text class="group-name">{{item.name}}</text>
+          <text class="group-count">👥 {{item.count}} 人参与</text>
+        </view>
+        <view class="join-btn">
+          <text class="join-btn-text">加入</text>
+        </view>
+      </view>
+
+      <!-- 社区影响力统计 -->
+      <view class="impact-card">
+        <view class="impact-info">
+          <text class="impact-label">社区影响力</text>
+          <text class="impact-value">~12.4t</text>
+          <text class="impact-sub">加入低碳小队，为地球减负。</text>
+        </view>
+        <text class="impact-tree">🌲</text>
+      </view>
+
+      <!-- 底部间距 -->
+      <view style="height: 40rpx;"></view>
+    </view>
+  </scroll-view>
+</view>

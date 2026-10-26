@@ -1,0 +1,9 @@
+{
+  "desc": "carbonpie miniapp sitemap",
+  "rules": [
+    {
+      "action": "allow",
+      "page": "*"
+    }
+  ]
+}

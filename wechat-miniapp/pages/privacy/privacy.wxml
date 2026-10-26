@@ -1,0 +1,72 @@
+<view class="privacy-page">
+  <view class="privacy-title">隐私政策</view>
+  <view class="privacy-date">最后更新日期：2026年5月</view>
+
+  <view class="privacy-section">
+    <view class="section-heading">1. 数据收集</view>
+    <view class="section-body">
+      CarbonPie（碳果派）是一款低碳生活记录应用。我们会使用以下数据来支撑核心功能：
+    </view>
+    <view class="bullet-list">
+      <view class="bullet-item">· 低碳行为记录数据（行为类型、数量、时间）</view>
+      <view class="bullet-item">· 拍照打卡照片在设备本地保存</view>
+      <view class="bullet-item">· 用户填写的昵称、城市和个性签名</view>
+      <view class="bullet-item">· 设备位置信息（仅用于天气和空气质量数据）</view>
+    </view>
+  </view>
+
+  <view class="privacy-section">
+    <view class="section-heading">2. 数据使用</view>
+    <view class="section-body">
+      这些数据仅用于以下用途：
+    </view>
+    <view class="bullet-list">
+      <view class="bullet-item">· 计算并展示减碳统计</view>
+      <view class="bullet-item">· 提供个性化环境建议</view>
+      <view class="bullet-item">· 支持家园农场成长与周报导出</view>
+      <view class="bullet-item">· 在云端可用时恢复部分文本记录</view>
+    </view>
+  </view>
+
+  <view class="privacy-section">
+    <view class="section-heading">3. 数据存储</view>
+    <view class="section-body">
+      您的低碳记录、资料和家园进度默认存储在微信小程序本地。若云端同步可用，行为记录、资料文本等信息可能写入 Supabase 数据库，但照片原图仍保留在本机。
+    </view>
+  </view>
+
+  <view class="privacy-section">
+    <view class="section-heading">4. 数据安全</view>
+    <view class="section-body">
+      本地数据受微信小程序沙盒环境保护；联网请求通过 HTTPS 发送。您可以通过导出或清除本机数据来管理个人信息。
+    </view>
+  </view>
+
+  <view class="privacy-section">
+    <view class="section-heading">5. 用户权利</view>
+    <view class="bullet-list">
+      <view class="bullet-item">· 您可以随时在“我的”页面清除本机数据</view>
+      <view class="bullet-item">· 您可以导出 JSON 或 CSV 数据文件</view>
+      <view class="bullet-item">· 您可以拒绝位置授权，应用会回退到默认城市环境数据</view>
+    </view>
+  </view>
+
+  <view class="privacy-section">
+    <view class="section-heading">6. 第三方服务</view>
+    <view class="section-body">
+      本应用可能使用以下第三方服务：
+    </view>
+    <view class="bullet-list">
+      <view class="bullet-item">· Open-Meteo：获取天气数据</view>
+      <view class="bullet-item">· Open-Meteo Air Quality：获取空气质量数据</view>
+      <view class="bullet-item">· Supabase：提供可选的云端登录与数据同步</view>
+    </view>
+  </view>
+
+  <view class="privacy-section">
+    <view class="section-heading">7. 联系与说明</view>
+    <view class="section-body">
+      如您对数据使用有疑问，可停止使用本应用并清除本机数据。应用内展示的减碳结果主要用于教育与激励，不构成正式核证或交易凭据。
+    </view>
+  </view>
+</view>

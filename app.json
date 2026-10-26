@@ -1,0 +1,71 @@
+{
+  "expo": {
+    "name": "碳果派",
+    "slug": "tanguopai",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "carbonpie",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "icon": "./assets/public-icon.png",
+    "splash": {
+      "backgroundColor": "#F7F6F2"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "org.example.carbonpie",
+      "infoPlist": {
+        "NSCameraUsageDescription": "用于拍照记录低碳生活打卡照片。",
+        "NSPhotoLibraryUsageDescription": "用于从相册选择低碳生活打卡照片。",
+        "NSPhotoLibraryAddUsageDescription": "用于保存周报海报到相册。",
+        "NSLocationWhenInUseUsageDescription": "用于获取当前城市的天气、空气质量和本地低碳资讯。"
+      }
+    },
+    "android": {
+      "package": "org.example.carbonpie",
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.READ_MEDIA_IMAGES",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.RECORD_AUDIO"
+      ]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/public-icon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "用于从相册选择低碳生活打卡照片。",
+          "cameraPermission": "用于拍照记录低碳生活打卡照片。"
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "用于获取当前城市的天气、空气质量和本地低碳资讯。"
+        }
+      ],
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "用于读取低碳打卡照片并生成影像册。",
+          "savePhotosPermission": "用于保存低碳周报海报到相册。"
+        }
+      ],
+      [
+        "expo-sqlite",
+        {
+          "enableFTS": false
+        }
+      ]
+    ]
+  }
+}

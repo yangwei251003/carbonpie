@@ -1,0 +1,21 @@
+node_modules/
+.expo/
+dist/
+web-build/
+*.log
+.env
+.env.local
+.DS_Store
+
+.vercel
+
+# Local account/project configuration and generated caches
+.env*
+!.env.example
+supabase/.temp/
+wechat-miniapp/project.private.config.json
+*.tsbuildinfo
+playwright-report/
+test-results/
+
+.local/

@@ -1,0 +1,47 @@
+<view class="container">
+  <!-- Category Filter -->
+  <scroll-view class="filter-scroll" scroll-x enhanced show-scrollbar="{{false}}">
+    <view class="filter-bar">
+      <view
+        class="filter-tag {{currentCategory === item.id ? 'active' : ''}}"
+        wx:for="{{categories}}"
+        wx:key="id"
+        data-category="{{item.id}}"
+        bindtap="onCategoryTap"
+      >
+        {{item.title}}
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- Photo Grid -->
+  <view class="photo-grid" wx:if="{{filteredPhotos.length > 0}}">
+    <view
+      class="photo-card"
+      wx:for="{{filteredPhotos}}"
+      wx:key="id"
+      data-src="{{item.localPath}}"
+      bindtap="previewImage"
+    >
+      <block wx:if="{{item.localPath}}">
+        <image
+          class="photo-img"
+          src="{{item.localPath}}"
+          mode="aspectFill"
+        />
+      </block>
+      <view wx:else class="photo-placeholder">仅本机可查看</view>
+      <view class="photo-info">
+        <view class="photo-title">{{item.title}}</view>
+        <view class="photo-date">{{item.createdAt}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- Empty -->
+  <view class="empty" wx:else>
+    <view class="empty-icon">📷</view>
+    <view class="empty-text">还没有拍照打卡记录</view>
+    <view class="empty-hint">去记录页面拍一张吧</view>
+  </view>
+</view>

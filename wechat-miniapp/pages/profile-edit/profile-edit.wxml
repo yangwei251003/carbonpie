@@ -1,0 +1,42 @@
+<view class="container">
+  <view class="form">
+    <!-- Nickname -->
+    <view class="form-item">
+      <view class="form-label">昵称</view>
+      <input
+        class="form-input"
+        placeholder="请输入昵称"
+        maxlength="20"
+        value="{{nickname}}"
+        bindinput="onNicknameInput"
+      />
+    </view>
+
+    <!-- Bio -->
+    <view class="form-item">
+      <view class="form-label">个性签名</view>
+      <textarea
+        class="form-textarea"
+        placeholder="写点什么介绍自己..."
+        maxlength="100"
+        value="{{bio}}"
+        bindinput="onBioInput"
+        auto-height
+      />
+    </view>
+
+    <!-- City -->
+    <view class="form-item">
+      <view class="form-label">所在城市</view>
+      <picker mode="selector" range="{{cities}}" value="{{cityIndex}}" bindchange="onCityChange">
+        <view class="form-picker">
+          {{city}}
+          <text class="picker-arrow">></text>
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <!-- Save Button -->
+  <button class="save-btn" bindtap="onSave">保存</button>
+</view>

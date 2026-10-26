@@ -1,0 +1,138 @@
+<view class="container">
+  <view class="hero">
+    <view class="hero-kicker">CarbonPie 低碳家园</view>
+    <view class="hero-title">把绿色生活过成每天都想打开的产品</view>
+    <view class="hero-sub">记录、拍照、科普和环境建议放在同一个首页里，打开就知道今天能做什么。</view>
+    <view class="hero-actions">
+      <button class="hero-primary" bindtap="goRecord">去记录</button>
+      <button class="hero-secondary" bindtap="goDiscover">看科普</button>
+    </view>
+  </view>
+
+  <view class="overview-grid" wx:if="{{summary}}">
+    <view class="card overview-card">
+      <view class="overview-label">累计减碳</view>
+      <view class="overview-value">~{{summary.totalCarbon}}kg</view>
+    </view>
+    <view class="card overview-card">
+      <view class="overview-label">累计碳币</view>
+      <view class="overview-value">{{summary.totalReward}}</view>
+    </view>
+    <view class="card overview-card">
+      <view class="overview-label">今日记录</view>
+      <view class="overview-value">{{summary.todayCount}}</view>
+    </view>
+  </view>
+
+  <!-- 本周减碳 + 7日趋势 -->
+  <view class="card week-card" wx:if="{{summary}}">
+    <view class="week-head">
+      <view>
+        <view class="week-title">本周减碳</view>
+        <view class="week-sub">~{{summary.weekCarbon}}kg · 活跃 {{summary.activeDays}} 天</view>
+      </view>
+      <button class="mini-link" bindtap="goWeekReport">周报</button>
+    </view>
+    <view class="trend-chart" wx:if="{{summary.weekData.length > 0}}">
+      <view class="trend-row">
+        <view
+          wx:for="{{summary.weekData}}"
+          wx:key="date"
+          class="trend-col"
+        >
+          <view class="trend-bar-wrap">
+            <view class="trend-bar" style="height: {{item.barHeight}}%;"></view>
+          </view>
+          <view class="trend-val">{{item.carbonDisplay}}</view>
+          <view class="trend-label">{{item.label}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 快捷入口 -->
+  <view class="quick-grid" wx:if="{{homestead}}">
+    <view class="quick-item" bindtap="goGrow">
+      <view class="quick-icon">🏡</view>
+      <view class="quick-text">我的家园</view>
+      <view class="quick-desc">Lv.{{homestead.level || 1}} {{levelTitle}}</view>
+    </view>
+    <view class="quick-item" bindtap="goAI">
+      <view class="quick-icon">🌿</view>
+      <view class="quick-text">低碳锦囊</view>
+      <view class="quick-desc">查看行动建议</view>
+    </view>
+    <view class="quick-item" bindtap="goWeekReport">
+      <view class="quick-icon">📊</view>
+      <view class="quick-text">周报海报</view>
+      <view class="quick-desc">本周数据分享</view>
+    </view>
+    <view class="quick-item" bindtap="goDiscover">
+      <view class="quick-icon">🧭</view>
+      <view class="quick-text">社区挑战</view>
+      <view class="quick-desc">加入低碳行动</view>
+    </view>
+  </view>
+
+  <view class="card feature-card" wx:if="{{featuredArticle}}" bindtap="openArticle">
+    <image wx:if="{{featuredArticle.hero_image_url}}" class="feature-hero" src="{{featuredArticle.hero_image_url}}" mode="aspectFill" />
+    <view class="feature-content">
+      <view class="feature-kicker">低碳科普推荐</view>
+      <view class="feature-title">{{featuredArticle.title}}</view>
+      <view class="feature-summary">{{featuredArticle.summary}}</view>
+    </view>
+  </view>
+
+  <view class="card radar-card">
+    <view class="radar-top">
+      <view>
+        <view class="radar-title">实时环境建议</view>
+        <view class="radar-source">{{environment.locationLabel}}</view>
+      </view>
+      <button class="relocate-btn" bindtap="handleRelocate">重新定位</button>
+    </view>
+
+    <view wx:if="{{loading}}" class="loading">正在加载环境数据...</view>
+
+    <view wx:elif="{{environment}}">
+      <view class="stats">
+        <view class="stat">
+          <view class="stat-label">气温</view>
+          <view class="stat-value">{{environment.weather.temperature || '--'}}°C</view>
+        </view>
+        <view class="stat">
+          <view class="stat-label">AQI</view>
+          <view class="stat-value">{{environment.air.aqi || '--'}}</view>
+        </view>
+        <view class="stat">
+          <view class="stat-label">PM2.5</view>
+          <view class="stat-value">{{environment.air.pm25 || '--'}}</view>
+        </view>
+      </view>
+
+      <view class="tip-list">
+        <view wx:for="{{environment.tips}}" wx:key="*this" class="tip-item">
+          <text class="tip-dot">•</text>
+          <text class="tip-text">{{item}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="card recent-card" wx:if="{{summary}}">
+    <view class="recent-head">
+      <view class="recent-title">最近低碳行动</view>
+      <button class="mini-link" bindtap="goRecord">全部记录</button>
+    </view>
+    <view wx:if="{{summary.recentRecords.length === 0 && summary.recentPhotos.length === 0}}" class="loading">
+      还没有记录，先拍一张或记一笔，首页会越来越像你的低碳生活档案。
+    </view>
+    <view wx:for="{{summary.recentRecords}}" wx:key="id" class="mini-record">
+      <view>
+        <view class="mini-record-title">{{item.title}}</view>
+        <view class="mini-record-meta">{{item.amount}}{{item.unit}} · {{item.note || '完成了一次低碳记录'}}</view>
+      </view>
+      <view class="mini-record-carbon">~{{item.carbon}}kg</view>
+    </view>
+  </view>
+</view>

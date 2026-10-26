@@ -1,0 +1,1232 @@
+{
+  "audit_counts": {
+    "info": 0,
+    "low": 1,
+    "moderate": 15,
+    "high": 20,
+    "critical": 0,
+    "total": 36
+  },
+  "primary_advisories": [
+    {
+      "package": "@babel/core",
+      "severity": "low",
+      "title": "@babel/core: Arbitrary File Read via sourceMappingURL Comment",
+      "url": "https://github.com/advisories/GHSA-4x5r-pxfx-6jf8",
+      "affected_range": "<=7.29.0",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@babel/core"
+      ]
+    },
+    {
+      "package": "@babel/plugin-transform-modules-systemjs",
+      "severity": "high",
+      "title": "@babel/plugin-transform-modules-systemjs generates arbitrary code when compiling malicious input",
+      "url": "https://github.com/advisories/GHSA-fv7c-fp4j-7gwp",
+      "affected_range": ">=7.12.0 <=7.29.3",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@babel/plugin-transform-modules-systemjs"
+      ]
+    },
+    {
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: XML injection via unsafe CDATA serialization allows attacker-controlled markup insertion",
+      "url": "https://github.com/advisories/GHSA-wh4c-j3r5-mjhp",
+      "affected_range": "<0.8.12",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@xmldom/xmldom",
+        "node_modules/plist/node_modules/@xmldom/xmldom"
+      ]
+    },
+    {
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: Uncontrolled recursion in XML serialization leads to DoS",
+      "url": "https://github.com/advisories/GHSA-2v35-w6hq-6mfw",
+      "affected_range": "<0.8.13",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@xmldom/xmldom",
+        "node_modules/plist/node_modules/@xmldom/xmldom"
+      ]
+    },
+    {
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom has XML injection through unvalidated DocumentType serialization",
+      "url": "https://github.com/advisories/GHSA-f6ww-3ggp-fr8h",
+      "affected_range": "<0.8.13",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@xmldom/xmldom",
+        "node_modules/plist/node_modules/@xmldom/xmldom"
+      ]
+    },
+    {
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom has XML node injection through unvalidated processing instruction serialization",
+      "url": "https://github.com/advisories/GHSA-x6wf-f3px-wcqx",
+      "affected_range": "<0.8.13",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@xmldom/xmldom",
+        "node_modules/plist/node_modules/@xmldom/xmldom"
+      ]
+    },
+    {
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom has XML node injection through unvalidated comment serialization",
+      "url": "https://github.com/advisories/GHSA-j759-j44w-7fr8",
+      "affected_range": "<0.8.13",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@xmldom/xmldom",
+        "node_modules/plist/node_modules/@xmldom/xmldom"
+      ]
+    },
+    {
+      "package": "@xmldom/xmldom",
+      "severity": "moderate",
+      "title": "xmldom: XML fragment injection via invalid EntityReference.nodeName during requireWellFormed serialization",
+      "url": "https://github.com/advisories/GHSA-6gmq-8vp8-gcm6",
+      "affected_range": ">=0.9.0 <=0.9.11",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@xmldom/xmldom",
+        "node_modules/plist/node_modules/@xmldom/xmldom"
+      ]
+    },
+    {
+      "package": "@xmldom/xmldom",
+      "severity": "moderate",
+      "title": "xmldom: XML fragment injection via invalid EntityReference.nodeName during requireWellFormed serialization",
+      "url": "https://github.com/advisories/GHSA-6gmq-8vp8-gcm6",
+      "affected_range": ">=0.7.0 <=0.8.14",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@xmldom/xmldom",
+        "node_modules/plist/node_modules/@xmldom/xmldom"
+      ]
+    },
+    {
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: HTML raw-text closing-tag case mismatch causes output amplification",
+      "url": "https://github.com/advisories/GHSA-6mj3-qw4j-hgrw",
+      "affected_range": ">=0.9.0-beta.1 <=0.9.11",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@xmldom/xmldom",
+        "node_modules/plist/node_modules/@xmldom/xmldom"
+      ]
+    },
+    {
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom PI grammar regex ReDoS: quadratic backtracking on unterminated processing instructions",
+      "url": "https://github.com/advisories/GHSA-g53g-w8rj-fmg7",
+      "affected_range": ">=0.9.0-beta.9 <=0.9.10",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@xmldom/xmldom",
+        "node_modules/plist/node_modules/@xmldom/xmldom"
+      ]
+    },
+    {
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: Element name injection via createElement() bypasses requireWellFormed",
+      "url": "https://github.com/advisories/GHSA-w2rr-34g9-rvrj",
+      "affected_range": ">=0.7.0 <=0.8.13",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@xmldom/xmldom",
+        "node_modules/plist/node_modules/@xmldom/xmldom"
+      ]
+    },
+    {
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: Element name injection via createElement() bypasses requireWellFormed",
+      "url": "https://github.com/advisories/GHSA-w2rr-34g9-rvrj",
+      "affected_range": ">=0.9.0 <=0.9.10",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@xmldom/xmldom",
+        "node_modules/plist/node_modules/@xmldom/xmldom"
+      ]
+    },
+    {
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: Attribute name injection via setAttribute() bypasses requireWellFormed",
+      "url": "https://github.com/advisories/GHSA-4w3w-2rp5-g8jm",
+      "affected_range": ">=0.7.0 <=0.8.13",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@xmldom/xmldom",
+        "node_modules/plist/node_modules/@xmldom/xmldom"
+      ]
+    },
+    {
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: Attribute name injection via setAttribute() bypasses requireWellFormed",
+      "url": "https://github.com/advisories/GHSA-4w3w-2rp5-g8jm",
+      "affected_range": ">=0.9.0 <=0.9.10",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@xmldom/xmldom",
+        "node_modules/plist/node_modules/@xmldom/xmldom"
+      ]
+    },
+    {
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: Processing Instruction Target Injection Bypasses requireWellFormed",
+      "url": "https://github.com/advisories/GHSA-c7q8-3ch8-vqpv",
+      "affected_range": ">=0.9.0 <=0.9.11",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@xmldom/xmldom",
+        "node_modules/plist/node_modules/@xmldom/xmldom"
+      ]
+    },
+    {
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: Processing Instruction Target Injection Bypasses requireWellFormed",
+      "url": "https://github.com/advisories/GHSA-c7q8-3ch8-vqpv",
+      "affected_range": ">=0.7.0 <=0.8.14",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@xmldom/xmldom",
+        "node_modules/plist/node_modules/@xmldom/xmldom"
+      ]
+    },
+    {
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: DocType `name` Injection Bypasses requireWellFormed",
+      "url": "https://github.com/advisories/GHSA-27p8-2357-5qqv",
+      "affected_range": ">=0.9.0 <=0.9.11",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@xmldom/xmldom",
+        "node_modules/plist/node_modules/@xmldom/xmldom"
+      ]
+    },
+    {
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: DocType `name` Injection Bypasses requireWellFormed",
+      "url": "https://github.com/advisories/GHSA-27p8-2357-5qqv",
+      "affected_range": ">=0.7.0 <=0.8.14",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@xmldom/xmldom",
+        "node_modules/plist/node_modules/@xmldom/xmldom"
+      ]
+    },
+    {
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: Creation-time XML Name/QName validation is bypassable via an embedded line terminator, allowing injection on the default serialization path",
+      "url": "https://github.com/advisories/GHSA-3px3-54cx-rmw9",
+      "affected_range": ">=0.9.0 <=0.9.11",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@xmldom/xmldom",
+        "node_modules/plist/node_modules/@xmldom/xmldom"
+      ]
+    },
+    {
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: requireWellFormed DocType publicId/systemId validation is bypassable via an embedded line terminator",
+      "url": "https://github.com/advisories/GHSA-vr34-hp96-76pp",
+      "affected_range": ">=0.9.10 <=0.9.11",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@xmldom/xmldom",
+        "node_modules/plist/node_modules/@xmldom/xmldom"
+      ]
+    },
+    {
+      "package": "@xmldom/xmldom",
+      "severity": "moderate",
+      "title": "xmldom: Parser silently accepts a not-well-formed end tag whose name is followed by a line break and trailing content",
+      "url": "https://github.com/advisories/GHSA-6h8r-xr42-gp59",
+      "affected_range": ">=0.9.0 <=0.9.11",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@xmldom/xmldom",
+        "node_modules/plist/node_modules/@xmldom/xmldom"
+      ]
+    },
+    {
+      "package": "@xmldom/xmldom",
+      "severity": "moderate",
+      "title": "xmldom: Parser silently accepts a not-well-formed end tag whose name is followed by a line break and trailing content",
+      "url": "https://github.com/advisories/GHSA-6h8r-xr42-gp59",
+      "affected_range": ">=0.7.0 <=0.8.14",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@xmldom/xmldom",
+        "node_modules/plist/node_modules/@xmldom/xmldom"
+      ]
+    },
+    {
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: Quadratic-time attribute deduplication",
+      "url": "https://github.com/advisories/GHSA-8344-3jmq-59r6",
+      "affected_range": ">=0.9.0 <=0.9.11",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@xmldom/xmldom",
+        "node_modules/plist/node_modules/@xmldom/xmldom"
+      ]
+    },
+    {
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: Quadratic-time attribute deduplication",
+      "url": "https://github.com/advisories/GHSA-8344-3jmq-59r6",
+      "affected_range": ">=0.7.0 <=0.8.14",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@xmldom/xmldom",
+        "node_modules/plist/node_modules/@xmldom/xmldom"
+      ]
+    },
+    {
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: End-tag Whitespace-Trim Regex ReDoS — quadratic backtracking in the 0.8.x end-tag parser",
+      "url": "https://github.com/advisories/GHSA-x4fp-j954-r2f4",
+      "affected_range": ">=0.7.0 <=0.8.14",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@xmldom/xmldom",
+        "node_modules/plist/node_modules/@xmldom/xmldom"
+      ]
+    },
+    {
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: Quadratic-memory consumption",
+      "url": "https://github.com/advisories/GHSA-965w-775f-mr7g",
+      "affected_range": ">=0.9.0 <=0.9.11",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@xmldom/xmldom",
+        "node_modules/plist/node_modules/@xmldom/xmldom"
+      ]
+    },
+    {
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: Quadratic-memory consumption",
+      "url": "https://github.com/advisories/GHSA-965w-775f-mr7g",
+      "affected_range": ">=0.7.0 <=0.8.14",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@xmldom/xmldom",
+        "node_modules/plist/node_modules/@xmldom/xmldom"
+      ]
+    },
+    {
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: Quadratic-time parsing via the malformed-input recovery path — `parseElementStartPart` re-scan and `normalize()` adjacent-text merge",
+      "url": "https://github.com/advisories/GHSA-93r5-fhx6-vmg9",
+      "affected_range": ">=0.9.0 <=0.9.11",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@xmldom/xmldom",
+        "node_modules/plist/node_modules/@xmldom/xmldom"
+      ]
+    },
+    {
+      "package": "@xmldom/xmldom",
+      "severity": "high",
+      "title": "xmldom: Quadratic-time parsing via the malformed-input recovery path — `parseElementStartPart` re-scan and `normalize()` adjacent-text merge",
+      "url": "https://github.com/advisories/GHSA-93r5-fhx6-vmg9",
+      "affected_range": ">=0.7.0 <=0.8.14",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@xmldom/xmldom",
+        "node_modules/plist/node_modules/@xmldom/xmldom"
+      ]
+    },
+    {
+      "package": "baseline-browser-mapping",
+      "severity": "moderate",
+      "title": "baseline-browser-mapping process termination on invalid input causes denial of service",
+      "url": "https://github.com/advisories/GHSA-w5vr-8v7q-w6rv",
+      "affected_range": ">=2.0.0 <2.11.0",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/baseline-browser-mapping"
+      ]
+    },
+    {
+      "package": "brace-expansion",
+      "severity": "high",
+      "title": "brace-expansion: DoS via exponential-time expansion of consecutive non-expanding {} groups",
+      "url": "https://github.com/advisories/GHSA-3jxr-9vmj-r5cp",
+      "affected_range": ">=2.0.0 <2.1.2",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@expo/cli/node_modules/brace-expansion",
+        "node_modules/@expo/config-plugins/node_modules/brace-expansion",
+        "node_modules/@expo/config/node_modules/brace-expansion",
+        "node_modules/@expo/metro-config/node_modules/brace-expansion",
+        "node_modules/brace-expansion",
+        "node_modules/cacache/node_modules/brace-expansion",
+        "node_modules/glob/node_modules/brace-expansion",
+        "node_modules/sucrase/node_modules/brace-expansion"
+      ]
+    },
+    {
+      "package": "brace-expansion",
+      "severity": "high",
+      "title": "brace-expansion: DoS via exponential-time expansion of consecutive non-expanding {} groups",
+      "url": "https://github.com/advisories/GHSA-3jxr-9vmj-r5cp",
+      "affected_range": "<1.1.16",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@expo/cli/node_modules/brace-expansion",
+        "node_modules/@expo/config-plugins/node_modules/brace-expansion",
+        "node_modules/@expo/config/node_modules/brace-expansion",
+        "node_modules/@expo/metro-config/node_modules/brace-expansion",
+        "node_modules/brace-expansion",
+        "node_modules/cacache/node_modules/brace-expansion",
+        "node_modules/glob/node_modules/brace-expansion",
+        "node_modules/sucrase/node_modules/brace-expansion"
+      ]
+    },
+    {
+      "package": "brace-expansion",
+      "severity": "high",
+      "title": "brace-expansion: DoS via unbounded expansion length causing an out-of-memory process crash",
+      "url": "https://github.com/advisories/GHSA-mh99-v99m-4gvg",
+      "affected_range": "<1.1.17",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@expo/cli/node_modules/brace-expansion",
+        "node_modules/@expo/config-plugins/node_modules/brace-expansion",
+        "node_modules/@expo/config/node_modules/brace-expansion",
+        "node_modules/@expo/metro-config/node_modules/brace-expansion",
+        "node_modules/brace-expansion",
+        "node_modules/cacache/node_modules/brace-expansion",
+        "node_modules/glob/node_modules/brace-expansion",
+        "node_modules/sucrase/node_modules/brace-expansion"
+      ]
+    },
+    {
+      "package": "brace-expansion",
+      "severity": "high",
+      "title": "brace-expansion: DoS via unbounded expansion length causing an out-of-memory process crash",
+      "url": "https://github.com/advisories/GHSA-mh99-v99m-4gvg",
+      "affected_range": ">=2.0.0 <2.1.3",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@expo/cli/node_modules/brace-expansion",
+        "node_modules/@expo/config-plugins/node_modules/brace-expansion",
+        "node_modules/@expo/config/node_modules/brace-expansion",
+        "node_modules/@expo/metro-config/node_modules/brace-expansion",
+        "node_modules/brace-expansion",
+        "node_modules/cacache/node_modules/brace-expansion",
+        "node_modules/glob/node_modules/brace-expansion",
+        "node_modules/sucrase/node_modules/brace-expansion"
+      ]
+    },
+    {
+      "package": "brace-expansion",
+      "severity": "high",
+      "title": "brace-expansion: DoS via unbounded intermediate arrays, bypassing the CVE-2026-14257 mitigation",
+      "url": "https://github.com/advisories/GHSA-rgw5-rvv9-x895",
+      "affected_range": ">=2.0.0 <2.1.4",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@expo/cli/node_modules/brace-expansion",
+        "node_modules/@expo/config-plugins/node_modules/brace-expansion",
+        "node_modules/@expo/config/node_modules/brace-expansion",
+        "node_modules/@expo/metro-config/node_modules/brace-expansion",
+        "node_modules/brace-expansion",
+        "node_modules/cacache/node_modules/brace-expansion",
+        "node_modules/glob/node_modules/brace-expansion",
+        "node_modules/sucrase/node_modules/brace-expansion"
+      ]
+    },
+    {
+      "package": "brace-expansion",
+      "severity": "high",
+      "title": "brace-expansion: DoS via unbounded intermediate arrays, bypassing the CVE-2026-14257 mitigation",
+      "url": "https://github.com/advisories/GHSA-rgw5-rvv9-x895",
+      "affected_range": "<1.1.18",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@expo/cli/node_modules/brace-expansion",
+        "node_modules/@expo/config-plugins/node_modules/brace-expansion",
+        "node_modules/@expo/config/node_modules/brace-expansion",
+        "node_modules/@expo/metro-config/node_modules/brace-expansion",
+        "node_modules/brace-expansion",
+        "node_modules/cacache/node_modules/brace-expansion",
+        "node_modules/glob/node_modules/brace-expansion",
+        "node_modules/sucrase/node_modules/brace-expansion"
+      ]
+    },
+    {
+      "package": "brace-expansion",
+      "severity": "moderate",
+      "title": "brace-expansion: Quadratic-time expansion of the `{a},b}` rewrite causes CPU denial of service",
+      "url": "https://github.com/advisories/GHSA-q2hr-2g5m-vwhr",
+      "affected_range": "<1.1.21",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@expo/cli/node_modules/brace-expansion",
+        "node_modules/@expo/config-plugins/node_modules/brace-expansion",
+        "node_modules/@expo/config/node_modules/brace-expansion",
+        "node_modules/@expo/metro-config/node_modules/brace-expansion",
+        "node_modules/brace-expansion",
+        "node_modules/cacache/node_modules/brace-expansion",
+        "node_modules/glob/node_modules/brace-expansion",
+        "node_modules/sucrase/node_modules/brace-expansion"
+      ]
+    },
+    {
+      "package": "brace-expansion",
+      "severity": "moderate",
+      "title": "brace-expansion: Quadratic-time expansion of the `{a},b}` rewrite causes CPU denial of service",
+      "url": "https://github.com/advisories/GHSA-q2hr-2g5m-vwhr",
+      "affected_range": ">=2.0.0 <2.1.7",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@expo/cli/node_modules/brace-expansion",
+        "node_modules/@expo/config-plugins/node_modules/brace-expansion",
+        "node_modules/@expo/config/node_modules/brace-expansion",
+        "node_modules/@expo/metro-config/node_modules/brace-expansion",
+        "node_modules/brace-expansion",
+        "node_modules/cacache/node_modules/brace-expansion",
+        "node_modules/glob/node_modules/brace-expansion",
+        "node_modules/sucrase/node_modules/brace-expansion"
+      ]
+    },
+    {
+      "package": "brace-expansion",
+      "severity": "high",
+      "title": "brace-expansion: DoS via uncontrolled recursion on nested brace groups causing stack exhaustion",
+      "url": "https://github.com/advisories/GHSA-qhr7-859c-m2p7",
+      "affected_range": "<1.1.20",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@expo/cli/node_modules/brace-expansion",
+        "node_modules/@expo/config-plugins/node_modules/brace-expansion",
+        "node_modules/@expo/config/node_modules/brace-expansion",
+        "node_modules/@expo/metro-config/node_modules/brace-expansion",
+        "node_modules/brace-expansion",
+        "node_modules/cacache/node_modules/brace-expansion",
+        "node_modules/glob/node_modules/brace-expansion",
+        "node_modules/sucrase/node_modules/brace-expansion"
+      ]
+    },
+    {
+      "package": "brace-expansion",
+      "severity": "high",
+      "title": "brace-expansion: DoS via uncontrolled recursion on nested brace groups causing stack exhaustion",
+      "url": "https://github.com/advisories/GHSA-qhr7-859c-m2p7",
+      "affected_range": ">=2.0.0 <2.1.6",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@expo/cli/node_modules/brace-expansion",
+        "node_modules/@expo/config-plugins/node_modules/brace-expansion",
+        "node_modules/@expo/config/node_modules/brace-expansion",
+        "node_modules/@expo/metro-config/node_modules/brace-expansion",
+        "node_modules/brace-expansion",
+        "node_modules/cacache/node_modules/brace-expansion",
+        "node_modules/glob/node_modules/brace-expansion",
+        "node_modules/sucrase/node_modules/brace-expansion"
+      ]
+    },
+    {
+      "package": "brace-expansion",
+      "severity": "high",
+      "title": "brace-expansion: DoS via uncontrolled recursion in parseCommaParts causing stack exhaustion",
+      "url": "https://github.com/advisories/GHSA-6j4f-fj2g-mc7p",
+      "affected_range": "<1.1.19",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@expo/cli/node_modules/brace-expansion",
+        "node_modules/@expo/config-plugins/node_modules/brace-expansion",
+        "node_modules/@expo/config/node_modules/brace-expansion",
+        "node_modules/@expo/metro-config/node_modules/brace-expansion",
+        "node_modules/brace-expansion",
+        "node_modules/cacache/node_modules/brace-expansion",
+        "node_modules/glob/node_modules/brace-expansion",
+        "node_modules/sucrase/node_modules/brace-expansion"
+      ]
+    },
+    {
+      "package": "brace-expansion",
+      "severity": "high",
+      "title": "brace-expansion: DoS via uncontrolled recursion in parseCommaParts causing stack exhaustion",
+      "url": "https://github.com/advisories/GHSA-6j4f-fj2g-mc7p",
+      "affected_range": ">=2.0.0 <2.1.5",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@expo/cli/node_modules/brace-expansion",
+        "node_modules/@expo/config-plugins/node_modules/brace-expansion",
+        "node_modules/@expo/config/node_modules/brace-expansion",
+        "node_modules/@expo/metro-config/node_modules/brace-expansion",
+        "node_modules/brace-expansion",
+        "node_modules/cacache/node_modules/brace-expansion",
+        "node_modules/glob/node_modules/brace-expansion",
+        "node_modules/sucrase/node_modules/brace-expansion"
+      ]
+    },
+    {
+      "package": "browserslist",
+      "severity": "high",
+      "title": "Browserslist: Unbounded memory growth (no cache eviction) via distinct query results, leading to eventual OOM",
+      "url": "https://github.com/advisories/GHSA-c83g-rgw3-j3cx",
+      "affected_range": "<=4.28.6",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/browserslist"
+      ]
+    },
+    {
+      "package": "browserslist",
+      "severity": "high",
+      "title": "Browserslist: Uncaught crash / prototype write via untrusted browserslist-stats.json custom stats (normalizeStats)",
+      "url": "https://github.com/advisories/GHSA-73wf-gq98-2v4g",
+      "affected_range": "<=4.28.6",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/browserslist"
+      ]
+    },
+    {
+      "package": "compression",
+      "severity": "high",
+      "title": "compression vulnerable to Denial of Service via memory leak on premature response close",
+      "url": "https://github.com/advisories/GHSA-vc2v-76pw-4v95",
+      "affected_range": "<1.8.2",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/compression"
+      ]
+    },
+    {
+      "package": "fast-uri",
+      "severity": "high",
+      "title": "fast-uri vulnerable to host confusion via literal backslash authority delimiter",
+      "url": "https://github.com/advisories/GHSA-v2hh-gcrm-f6hx",
+      "affected_range": ">=3.0.0 <=3.1.3",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/fast-uri"
+      ]
+    },
+    {
+      "package": "fast-uri",
+      "severity": "high",
+      "title": "fast-uri vulnerable to host confusion via backslash authority introducer",
+      "url": "https://github.com/advisories/GHSA-7p8r-x3mc-p8w7",
+      "affected_range": ">=3.0.0 <3.1.5",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/fast-uri"
+      ]
+    },
+    {
+      "package": "fast-uri",
+      "severity": "high",
+      "title": "fast-uri vulnerable to path traversal via percent-encoded dot segments",
+      "url": "https://github.com/advisories/GHSA-q3j6-qgpj-74h6",
+      "affected_range": ">=3.0.0 <=3.1.0",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/fast-uri"
+      ]
+    },
+    {
+      "package": "fast-uri",
+      "severity": "high",
+      "title": "fast-uri vulnerable to host confusion via percent-encoded authority delimiters",
+      "url": "https://github.com/advisories/GHSA-v39h-62p7-jpjc",
+      "affected_range": ">=3.0.0 <=3.1.1",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/fast-uri"
+      ]
+    },
+    {
+      "package": "fast-uri",
+      "severity": "high",
+      "title": "fast-uri vulnerable to server-side request forgery via malformed IPv6 normalization",
+      "url": "https://github.com/advisories/GHSA-f65p-4m7j-42xc",
+      "affected_range": ">=3.0.0 <3.1.6",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/fast-uri"
+      ]
+    },
+    {
+      "package": "fast-uri",
+      "severity": "high",
+      "title": "fast-uri vulnerable to host confusion via percent-encoded scheme normalization",
+      "url": "https://github.com/advisories/GHSA-jqff-g426-hqxp",
+      "affected_range": ">=3.0.0 <3.1.6",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/fast-uri"
+      ]
+    },
+    {
+      "package": "fast-uri",
+      "severity": "high",
+      "title": "fast-uri vulnerable to host confusion via failed IDN canonicalization",
+      "url": "https://github.com/advisories/GHSA-4c8g-83qw-93j6",
+      "affected_range": ">=3.0.0 <3.1.3",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/fast-uri"
+      ]
+    },
+    {
+      "package": "fast-uri",
+      "severity": "high",
+      "title": "fast-uri vulnerable to authority injection via an unvalidated port in serialize",
+      "url": "https://github.com/advisories/GHSA-qw65-cvwx-89v3",
+      "affected_range": ">=3.0.0 <3.1.7",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/fast-uri"
+      ]
+    },
+    {
+      "package": "fast-uri",
+      "severity": "moderate",
+      "title": "fast-uri vulnerable to inconsistent host case normalization via percent-encoded octets",
+      "url": "https://github.com/advisories/GHSA-hrr3-gc8f-f4qj",
+      "affected_range": ">=3.0.0 <3.1.8",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/fast-uri"
+      ]
+    },
+    {
+      "package": "fast-uri",
+      "severity": "moderate",
+      "title": "fast-uri vulnerable to URI scheme spoofing via percent-encoded scheme decoding",
+      "url": "https://github.com/advisories/GHSA-w74x-v6f9-j3xg",
+      "affected_range": ">=3.0.0 <3.1.9",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/fast-uri"
+      ]
+    },
+    {
+      "package": "fast-uri",
+      "severity": "low",
+      "title": "fast-uri vulnerable to improper path equivalence in relative reference normalization",
+      "url": "https://github.com/advisories/GHSA-xhq7-xmqj-769h",
+      "affected_range": ">=3.0.0 <3.1.9",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/fast-uri"
+      ]
+    },
+    {
+      "package": "fast-uri",
+      "severity": "low",
+      "title": "fast-uri vulnerable to scheme injection via an unescaped first-segment colon in suffix references",
+      "url": "https://github.com/advisories/GHSA-333x-w4r6-6crp",
+      "affected_range": ">=3.0.0 <3.1.9",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/fast-uri"
+      ]
+    },
+    {
+      "package": "form-data",
+      "severity": "high",
+      "title": "form-data: CRLF injection in form-data via unescaped multipart field names and filenames",
+      "url": "https://github.com/advisories/GHSA-hmw2-7cc7-3qxx",
+      "affected_range": ">=3.0.0 <3.0.5",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/form-data"
+      ]
+    },
+    {
+      "package": "glob",
+      "severity": "high",
+      "title": "glob CLI: Command injection via -c/--cmd executes matches with shell:true",
+      "url": "https://github.com/advisories/GHSA-5j98-mcp5-4vw2",
+      "affected_range": ">=10.2.0 <10.5.0",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@expo/cli/node_modules/glob",
+        "node_modules/@expo/config-plugins/node_modules/glob",
+        "node_modules/@expo/config/node_modules/glob",
+        "node_modules/@expo/metro-config/node_modules/glob",
+        "node_modules/cacache/node_modules/glob",
+        "node_modules/sucrase/node_modules/glob"
+      ]
+    },
+    {
+      "package": "image-size",
+      "severity": "high",
+      "title": "image-size: JXL and HEIF parsers allow denial of service through infinite loops",
+      "url": "https://github.com/advisories/GHSA-5p2g-fcmc-qvqq",
+      "affected_range": ">=1.2.0 <=2.0.2",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/image-size"
+      ]
+    },
+    {
+      "package": "image-size",
+      "severity": "high",
+      "title": "image-size: ICNS parser allows denial of service through an infinite loop",
+      "url": "https://github.com/advisories/GHSA-w3rx-r6r6-pgpr",
+      "affected_range": ">=0.6.3 <=2.0.2",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/image-size"
+      ]
+    },
+    {
+      "package": "js-yaml",
+      "severity": "moderate",
+      "title": "JS-YAML: Quadratic-complexity DoS in merge key handling via repeated aliases",
+      "url": "https://github.com/advisories/GHSA-h67p-54hq-rp68",
+      "affected_range": "<3.15.0",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@istanbuljs/load-nyc-config/node_modules/js-yaml",
+        "node_modules/cosmiconfig/node_modules/js-yaml",
+        "node_modules/js-yaml"
+      ]
+    },
+    {
+      "package": "js-yaml",
+      "severity": "moderate",
+      "title": "JS-YAML: Quadratic-complexity DoS in merge key handling via repeated aliases",
+      "url": "https://github.com/advisories/GHSA-h67p-54hq-rp68",
+      "affected_range": ">=4.0.0 <=4.1.1",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@istanbuljs/load-nyc-config/node_modules/js-yaml",
+        "node_modules/cosmiconfig/node_modules/js-yaml",
+        "node_modules/js-yaml"
+      ]
+    },
+    {
+      "package": "js-yaml",
+      "severity": "high",
+      "title": "js-yaml: YAML merge-key chains can force quadratic CPU consumption",
+      "url": "https://github.com/advisories/GHSA-52cp-r559-cp3m",
+      "affected_range": ">=4.0.0 <4.3.0",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@istanbuljs/load-nyc-config/node_modules/js-yaml",
+        "node_modules/cosmiconfig/node_modules/js-yaml",
+        "node_modules/js-yaml"
+      ]
+    },
+    {
+      "package": "js-yaml",
+      "severity": "high",
+      "title": "js-yaml: YAML merge-key chains can force quadratic CPU consumption",
+      "url": "https://github.com/advisories/GHSA-52cp-r559-cp3m",
+      "affected_range": ">=3.0.0 <3.15.0",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@istanbuljs/load-nyc-config/node_modules/js-yaml",
+        "node_modules/cosmiconfig/node_modules/js-yaml",
+        "node_modules/js-yaml"
+      ]
+    },
+    {
+      "package": "js-yaml",
+      "severity": "high",
+      "title": "JS-YAML: Quadratic CPU consumption in !!omap resolution (3.x and 4.x) — CVE-2026-59870 fix not backported",
+      "url": "https://github.com/advisories/GHSA-5p4m-2wfm-xmqj",
+      "affected_range": ">=3.0.0 <3.15.1",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@istanbuljs/load-nyc-config/node_modules/js-yaml",
+        "node_modules/cosmiconfig/node_modules/js-yaml",
+        "node_modules/js-yaml"
+      ]
+    },
+    {
+      "package": "js-yaml",
+      "severity": "high",
+      "title": "JS-YAML: Quadratic CPU consumption in !!omap resolution (3.x and 4.x) — CVE-2026-59870 fix not backported",
+      "url": "https://github.com/advisories/GHSA-5p4m-2wfm-xmqj",
+      "affected_range": ">=4.0.0 <4.3.1",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@istanbuljs/load-nyc-config/node_modules/js-yaml",
+        "node_modules/cosmiconfig/node_modules/js-yaml",
+        "node_modules/js-yaml"
+      ]
+    },
+    {
+      "package": "js-yaml",
+      "severity": "high",
+      "title": "js-yaml: maxTotalMergeKeys does not limit CPU use for empty merge sources",
+      "url": "https://github.com/advisories/GHSA-2883-xcg3-v3hh",
+      "affected_range": ">=3.0.0 <3.15.2",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@istanbuljs/load-nyc-config/node_modules/js-yaml",
+        "node_modules/cosmiconfig/node_modules/js-yaml",
+        "node_modules/js-yaml"
+      ]
+    },
+    {
+      "package": "js-yaml",
+      "severity": "high",
+      "title": "js-yaml: maxTotalMergeKeys does not limit CPU use for empty merge sources",
+      "url": "https://github.com/advisories/GHSA-2883-xcg3-v3hh",
+      "affected_range": ">=4.0.0 <4.3.2",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@istanbuljs/load-nyc-config/node_modules/js-yaml",
+        "node_modules/cosmiconfig/node_modules/js-yaml",
+        "node_modules/js-yaml"
+      ]
+    },
+    {
+      "package": "node-forge",
+      "severity": "high",
+      "title": "node-forge RSA PKCS#1 v1.5 signature verification accepts extra nested DigestAlgorithm elements",
+      "url": "https://github.com/advisories/GHSA-86w9-cpqp-85rv",
+      "affected_range": "<=1.4.0",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/node-forge"
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "moderate",
+      "title": "undici vulnerable to HTTP header injection via Set-Cookie percent-decoding",
+      "url": "https://github.com/advisories/GHSA-p88m-4jfj-68fv",
+      "affected_range": "<6.27.0",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/undici"
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "high",
+      "title": "undici WebSocket client vulnerable to denial of service via fragment count bypass",
+      "url": "https://github.com/advisories/GHSA-vxpw-j846-p89q",
+      "affected_range": "<6.27.0",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/undici"
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "low",
+      "title": "undici vulnerable to Set-Cookie SameSite attribute downgrade via permissive substring matching",
+      "url": "https://github.com/advisories/GHSA-g8m3-5g58-fq7m",
+      "affected_range": "<6.27.0",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/undici"
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "moderate",
+      "title": "undici vulnerable to downstream response desynchronization via retry interceptor",
+      "url": "https://github.com/advisories/GHSA-8xcm-r25x-g524",
+      "affected_range": "<6.28.0",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/undici"
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "moderate",
+      "title": "undici vulnerable to CRLF Injection via blob-like body 'type' property",
+      "url": "https://github.com/advisories/GHSA-m8rv-5g2x-5cg5",
+      "affected_range": "<6.28.0",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/undici"
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "moderate",
+      "title": "undici vulnerable to cookie attribute injection via unsanitized domain and unparsed setCookie fields",
+      "url": "https://github.com/advisories/GHSA-v3r7-h72x-cjcm",
+      "affected_range": "<6.28.0",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/undici"
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "low",
+      "title": "undici vulnerable to HTTP response queue poisoning via keep-alive socket reuse",
+      "url": "https://github.com/advisories/GHSA-35p6-xmwp-9g52",
+      "affected_range": "<6.27.0",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/undici"
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "moderate",
+      "title": "undici vulnerable to Denial of Service via unhandled error in WebSocket permessage-deflate decompression",
+      "url": "https://github.com/advisories/GHSA-3wwx-pv8p-q78v",
+      "affected_range": ">=6.25.0 <6.28.1",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/undici"
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "low",
+      "title": "undici vulnerable to downstream response splitting via retry interceptor",
+      "url": "https://github.com/advisories/GHSA-r53p-7pc4-xj5r",
+      "affected_range": "<6.28.1",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/undici"
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "high",
+      "title": "undici vulnerable to Denial of Service via unrequested WebSocket subprotocol",
+      "url": "https://github.com/advisories/GHSA-rfgv-xxqx-mfg5",
+      "affected_range": ">=6.7.0 <6.28.1",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/undici"
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "moderate",
+      "title": "undici vulnerable to Denial of Service via unbounded memory in the EventSource parser",
+      "url": "https://github.com/advisories/GHSA-4qv8-2p9j-2685",
+      "affected_range": ">=6.5.0 <6.29.1",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/undici"
+      ]
+    },
+    {
+      "package": "undici",
+      "severity": "high",
+      "title": "undici vulnerable to Denial of Service via unhandled error on excessive content-encodings",
+      "url": "https://github.com/advisories/GHSA-xjj6-f33q-929c",
+      "affected_range": ">=6.23.0 <6.29.1",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/undici"
+      ]
+    },
+    {
+      "package": "uuid",
+      "severity": "moderate",
+      "title": "uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided",
+      "url": "https://github.com/advisories/GHSA-w5hq-g745-h8pq",
+      "affected_range": "<11.1.1",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/uuid",
+        "node_modules/xcode/node_modules/uuid"
+      ]
+    },
+    {
+      "package": "ws",
+      "severity": "moderate",
+      "title": "ws: Uninitialized memory disclosure",
+      "url": "https://github.com/advisories/GHSA-58qx-3vcg-4xpx",
+      "affected_range": ">=8.0.0 <8.20.1",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@react-native/community-cli-plugin/node_modules/ws",
+        "node_modules/@react-native/dev-middleware/node_modules/ws",
+        "node_modules/metro/node_modules/ws",
+        "node_modules/react-devtools-core/node_modules/ws",
+        "node_modules/react-native/node_modules/ws",
+        "node_modules/ws"
+      ]
+    },
+    {
+      "package": "ws",
+      "severity": "high",
+      "title": "ws: Memory exhaustion DoS from tiny fragments and data chunks",
+      "url": "https://github.com/advisories/GHSA-96hv-2xvq-fx4p",
+      "affected_range": ">=8.0.0 <8.21.0",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@react-native/community-cli-plugin/node_modules/ws",
+        "node_modules/@react-native/dev-middleware/node_modules/ws",
+        "node_modules/metro/node_modules/ws",
+        "node_modules/react-devtools-core/node_modules/ws",
+        "node_modules/react-native/node_modules/ws",
+        "node_modules/ws"
+      ]
+    },
+    {
+      "package": "ws",
+      "severity": "high",
+      "title": "ws: Memory exhaustion DoS from tiny fragments and data chunks",
+      "url": "https://github.com/advisories/GHSA-96hv-2xvq-fx4p",
+      "affected_range": ">=7.0.0 <7.5.11",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@react-native/community-cli-plugin/node_modules/ws",
+        "node_modules/@react-native/dev-middleware/node_modules/ws",
+        "node_modules/metro/node_modules/ws",
+        "node_modules/react-devtools-core/node_modules/ws",
+        "node_modules/react-native/node_modules/ws",
+        "node_modules/ws"
+      ]
+    },
+    {
+      "package": "ws",
+      "severity": "high",
+      "title": "ws: Memory exhaustion DoS from tiny fragments and data chunks",
+      "url": "https://github.com/advisories/GHSA-96hv-2xvq-fx4p",
+      "affected_range": ">=6.0.0 <6.2.4",
+      "appears_as_package_in_web_source_map": false,
+      "installed_locations": [
+        "node_modules/@react-native/community-cli-plugin/node_modules/ws",
+        "node_modules/@react-native/dev-middleware/node_modules/ws",
+        "node_modules/metro/node_modules/ws",
+        "node_modules/react-devtools-core/node_modules/ws",
+        "node_modules/react-native/node_modules/ws",
+        "node_modules/ws"
+      ]
+    }
+  ],
+  "web_source_map_packages": [
+    "@babel/runtime",
+    "@callstack/react-theme-provider",
+    "@egjs/hammerjs",
+    "@expo/metro-runtime",
+    "@expo/vector-icons",
+    "@radix-ui/react-compose-refs",
+    "@radix-ui/react-slot",
+    "@react-native-async-storage/async-storage",
+    "@react-native/js-polyfills",
+    "@react-native/normalize-colors",
+    "@react-navigation/bottom-tabs",
+    "@react-navigation/core",
+    "@react-navigation/elements",
+    "@react-navigation/native",
+    "@react-navigation/native-stack",
+    "@react-navigation/routers",
+    "@supabase/auth-js",
+    "@supabase/functions-js",
+    "@supabase/phoenix",
+    "@supabase/postgrest-js",
+    "@supabase/realtime-js",
+    "@supabase/storage-js",
+    "@supabase/supabase-js",
+    "base64-js",
+    "buffer",
+    "color",
+    "color-convert",
+    "color-name",
+    "color-string",
+    "css-in-js-utils",
+    "date-fns",
+    "deepmerge",
+    "escape-string-regexp",
+    "expo",
+    "expo-asset",
+    "expo-constants",
+    "expo-crypto",
+    "expo-file-system",
+    "expo-font",
+    "expo-image-picker",
+    "expo-linear-gradient",
+    "expo-linking",
+    "expo-location",
+    "expo-media-library",
+    "expo-modules-core",
+    "expo-router",
+    "expo-sharing",
+    "expo-sqlite",
+    "expo-status-bar",
+    "fast-deep-equal",
+    "fbjs",
+    "filter-obj",
+    "fontfaceobserver",
+    "hoist-non-react-statics",
+    "html2canvas",
+    "hyphenate-style-name",
+    "iceberg-js",
+    "ieee754",
+    "inline-style-prefixer",
+    "invariant",
+    "is-arrayish",
+    "is-plain-obj",
+    "memoize-one",
+    "merge-options",
+    "metro-runtime",
+    "nanoid",
+    "nullthrows",
+    "postcss-value-parser",
+    "prop-types",
+    "query-string",
+    "react",
+    "react-dom",
+    "react-fast-compare",
+    "react-is",
+    "react-native-gesture-handler",
+    "react-native-helmet-async",
+    "react-native-is-edge-to-edge",
+    "react-native-paper",
+    "react-native-reanimated",
+    "react-native-safe-area-context",
+    "react-native-screens",
+    "react-native-svg",
+    "react-native-view-shot",
+    "react-native-web",
+    "scheduler",
+    "shallowequal",
+    "simple-swizzle",
+    "split-on-first",
+    "strict-uri-encode",
+    "styleq",
+    "tslib",
+    "use-latest-callback",
+    "use-sync-external-store",
+    "warn-once"
+  ],
+  "web_source_count": 1581,
+  "scope": "Module-package provenance, not a claim of whole SDK safety. Source maps deleted from artifact."
+}
